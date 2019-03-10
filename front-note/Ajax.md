@@ -49,7 +49,7 @@ function addURLParam(url,name,value){
  xhr.send(null);
 ```
 
-7、xhr post请求
+8、xhr post请求
 
 ```javascript
 xhr = new XMLHttpRequest();
@@ -57,6 +57,23 @@ xhr.open("post","postexample.php",true);
 xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//请求头部表示表单提交时的内容类型
 var form = document.getElementById("user-info");
 xhr.send(serialize(form));//serialize()序列化表单，创建发送出去的字符串
+```
+
+9、xhr 的异步请求
+
+- 需要使用事件监听
+
+```javascript
+xhr = new XMLHttpRequest();
+xhr.onload=function(){
+    if ((xhr.status>=200 && xhr.status<=300) || xhr.status == 304 ){
+            //正常执行语句
+    }else{
+        // 请求失败语句;
+    }
+};
+xhr.open("post","postexample.php",true);
+
 ```
 
 #XMLHttpRequest 2级

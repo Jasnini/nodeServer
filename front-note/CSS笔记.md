@@ -42,3 +42,7 @@ overflow: auto
 - 发生冲突 max-width会覆盖width，min-width会覆盖max-width
 
 4、box-sizing: content-box(默认)  border-box(height和width包含了padding和border)
+
+#CSS 使用技巧
+
+1、margin-bottom 通常不能用来调整块级元素的位置。方法：将当前元素的父级元素 display: relative 当前元素 display:positive。然后设置bottom、top、left、right等属性值大小。
