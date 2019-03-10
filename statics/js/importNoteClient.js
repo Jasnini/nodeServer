@@ -13,7 +13,6 @@
                 let text1=xhr.responseText;
                 console.log(text1);
                 document.getElementById('article').innerHTML=text1;
-                document.getElementsByTagName('pre').className= 'prettyprint';
             };
             xhr.open("get","/front-note/"+encodeURIComponent(fileName), true);
             xhr.send(null);

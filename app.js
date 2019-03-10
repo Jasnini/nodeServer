@@ -5,7 +5,7 @@ var express = require('express')
 var server = express()
 
 server.use(express.static('statics')); //静态文件夹
-//server.use(express.static('node_modules'));
+server.use(express.static('node_modules'));
 
 server.get('/front-note/*', 
     (request,response) => {
