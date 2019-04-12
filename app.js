@@ -20,7 +20,10 @@ server.get('/front-note/*',
 
             fs.readFile('.'+pathname+'.md','utf8',function(err,data){     
                     let converter= new showdown.Converter({
-                        extensions: [showdownHighlight]
+                        'tasklists': false,
+                        'ghCodeBlocks': true,
+                        extensions: [showdownHighlight],
+                        
                     });
                     let html=converter.makeHtml(data);
 
@@ -29,7 +32,7 @@ server.get('/front-note/*',
 
                     response.set('Content-Type','text/xml');
                     response.send(html);
-                    console.log(html);
+                    // console.log(html);
                     // console.log(str);
                     // fn(html);
                 }

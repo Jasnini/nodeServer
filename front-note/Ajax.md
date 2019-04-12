@@ -1,5 +1,6 @@
 #XMLHttpRequest
 1、 xhr.readyState
+
 - 0: 未初始化。无open()  
 - 1: 启动。有open() 无send()
 - 2: 发送。已调用send() 无响应

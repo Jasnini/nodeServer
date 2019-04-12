@@ -1,8 +1,8 @@
 #this  的用法
-1、对象的方法调用 this，指向对象
-2、方法的 this，指全局作用域
-3、构造函数调用，指实例对象
-4、apply() 和 函数call()
+1、对象的方法调用 this，指向对象<br>
+2、方法的 this，指全局作用域<br>
+3、构造函数调用，指实例对象<br>
+4、apply() 和 函数call()<br>
 ```javascript
 
 var x = 0;

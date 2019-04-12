@@ -49,7 +49,7 @@ html,body,#outer{
     color: white;
 }
 
-li {
+.dir {
     display: inline-block;
     margin-right: 6%;
     
@@ -121,6 +121,10 @@ li {
     top: 30%;
     color: white;
 
+}
+
+ul li{
+    display:block;
 }
 
 
