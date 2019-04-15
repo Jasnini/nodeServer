@@ -8,8 +8,9 @@
         <link rel="shortcut icon" href="./images/icon.jpg" type="image/x-icon"/>
         <link rel="stylesheet" href="./highlight.js/styles/github.css" type="text/css"/>
         <link rel="stylesheet" href="./styles/indexStyle.css" type="text/css"/>
-        
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>       
         <script src="./js/importNoteClient.js" async> </script>
+
     </head>
     <body>
         <div id= "outer">
@@ -20,49 +21,22 @@
                     </div>
                     <div id="dheader4">
                         <ul class="list1">
-                            <li class='dir'>
-                                <a>前端笔记</a>
+                            <li class='dir' v-for="item in dirs">
+                                <a id='js-note' @click="changeList(item.name)">{{ item.dir }}</a>
                             </li>
-                            <li class='dir'>
-                                <a>Linux</a>
-                            </li class='dir'>
-                            <li class='dir'>
-                                <a>测试脑图 & code</a>
-                            </li>
-                            <li class='dir'>
-                                <a>阅读小记</a>
-                            </li>
-                            <li class='dir'>
-                                <a>关于</a>
-                            </li>
-                            
                         </ul>
-                    </div> 
+                    </div>
                 </div>
             </div>
 
             <div id="dbody">
-                <nav id="list2" value='目录'>
-                    <div class="innner">
-                        <strong class="list3">前端笔记</strong>
-                        <a class="list2">CSS笔记</a>
-                        <a class="list2">DOM笔记</a>
-                        <a class="list2">JS原型链</a>
-                        <a class="list2">this的用法</a>
-                        <a class="list2">JS</a>
-                        <a class="list2">事件</a>
-                        <a class="list2">块级作用域</a>
-                        <a class="list2">Ajax</a>
-                        <strong class="list3">Linux</strong>
-                        <strong class="list3">测试脑图&code</strong>
-                        <strong class="list3">阅读小记</strong>
-                        <a></a>
+                <nav id="list2" value='目录' >
+                    <div class="innner" >
+                        <li class="list2" v-for="item in list1" @click="loadData(item)"> {{ item }} </li>
                     </div>
                 </nav>
                 <section id="content" value="内容">
-                    <div id="article">
-
-                    </div>
+                    <div id="article" v-html="article" />
                 </section>
                 
             </div>
