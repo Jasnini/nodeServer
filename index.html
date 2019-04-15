@@ -8,8 +8,12 @@
         <link rel="shortcut icon" href="./images/icon.jpg" type="image/x-icon"/>
         <link rel="stylesheet" href="./highlight.js/styles/github.css" type="text/css"/>
         <link rel="stylesheet" href="./styles/indexStyle.css" type="text/css"/>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>       
-        <script src="./js/importNoteClient.js" async> </script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <!-- <script src="./statics/dist/bundle.js" async></script>     -->
+        <!-- <script src="./js/importNoteClient.js" async> </script> -->
+        <!-- <script src="https://unpkg.com/element-ui/lib/index.js" ></script> -->
+        <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+
 
     </head>
     <body>
@@ -33,6 +37,7 @@
                 <nav id="list2" value='目录' >
                     <div class="innner" >
                         <li class="list2" v-for="item in list1" @click="loadData(item)"> {{ item }} </li>
+                        <!-- <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree> -->
                     </div>
                 </nav>
                 <section id="content" value="内容">

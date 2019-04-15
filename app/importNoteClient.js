@@ -1,3 +1,5 @@
+   
+    import tree from './tree.vue';
     let outer=new Vue({
         el: '#outer',
         data:{
@@ -5,7 +7,10 @@
             article: '',
             dirs: [{name:'js',dir:'js笔记'},{name:'css',dir:'css笔记'},
                   {name:'html',dir:'html笔记'},{name:'Vue',dir:'Vue笔记'},
-                  {name:'reading',dir:'阅读小记'},{name:'about',dir:'关于'}]
+                  {name:'reading',dir:'阅读小记'},{name:'about',dir:'关于'}],
+        },
+        components:{
+            tree
         },
         methods:{
             changeList(listType){
