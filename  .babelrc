@@ -1,0 +1,12 @@
+// {
+//     "presets": [["es2015", { "modules": false }]],
+//     "plugins": [
+//       [
+//         "component",
+//         {
+//           "libraryName": "@/node_modules/element-ui",
+//           "styleLibraryName": "@/node_modules/element-ui/lib/theme-chalk"
+//         }
+//       ]
+//     ]
+//   }

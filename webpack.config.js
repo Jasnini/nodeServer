@@ -43,6 +43,10 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
                 test: /\.(gif|jpg|jpeg|svg)$/,
                 use: {
                     loader: 'url-loader',
@@ -51,6 +55,13 @@ module.exports = {
                         name: 'name.[hash:6].[ext]'
                     }
                 }
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: {
+                    loader: 'url-loader'
+                }
+            
             }
         ]
     },

@@ -46,7 +46,11 @@ html,body,#outer{
     bottom: 0%;
     padding-left:0;
     width: 100%;
-    color: white;
+    color: white ;
+}
+.js-note{
+    cursor: pointer;
+    padding: 3px 3px;
 }
 
 .dir {
@@ -63,9 +67,11 @@ html,body,#outer{
 #list2,.innner {
     flex: 1;
     height: 100%;
-    margin-top: 2%;
-    padding-top: 0%;
-    background-color:rgb(238, 237, 237)
+    margin-top: 0%;
+    padding-top: 2%;
+    background-color:rgb(238, 237, 237);
+    overflow-y:auto;
+
 }
 
 
@@ -85,7 +91,7 @@ html,body,#outer{
 
 #content {
     box-sizing: border-box; 
-    flex: 3;
+    flex: 3.6;
     height: 100%;
 }
 
@@ -127,7 +133,6 @@ html,body,#outer{
 ul li{
     display:block;
 }
-
 
 
 
