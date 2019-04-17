@@ -53,7 +53,7 @@
                     label:'css笔记',
                     children: [{
                         id:'21',
-                        label: 'css笔记',
+                        label: 'css',
                     }]
                 },
                 {
