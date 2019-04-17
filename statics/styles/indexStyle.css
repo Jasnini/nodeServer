@@ -135,5 +135,10 @@ ul li{
 }
 
 
+[v-cloak]{
+    display: none;
+}
+
+
 
   
