@@ -38,7 +38,7 @@
                     <div class="innner" >
                         <!-- <li class="list2" v-for="item in list1" @click="loadData(item)"> {{ item }} </li> -->
                         <!-- <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree> -->
-                        <tree :expandedkey="expandedKey" @loaddata="loadData($event)"></tree>
+                        <tree :expandedkey="expandedKey" @loaddata="loadData($event)" @changeexpand="changeExpand($event)"></tree>
                     </div>
                 </nav>
                 <section id="content" value="内容">
