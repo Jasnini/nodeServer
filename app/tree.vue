@@ -156,7 +156,7 @@
 
     .el-tree-node__content {
         height: 3rem;
-        padding-left: 3% !important;
+        padding-left: 5px !important;
   }
   
 
