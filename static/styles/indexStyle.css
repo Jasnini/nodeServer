@@ -227,6 +227,8 @@ ul li{
     color:white;
     background-color:rgb(64, 74, 78);
     transition:0.3s;
+    outline:none;
+
 }
 .button-hidden{
     position:fixed; 
@@ -237,4 +239,5 @@ ul li{
     color:white;
     background-color: rgb(64, 74, 78);
     transition:0.3s;
+    outline:none;
 }
