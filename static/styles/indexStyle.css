@@ -14,6 +14,10 @@ html,body,#outer{
         font-size: 10px;
     }
 
+    #list2{
+        flex:1.5;
+    }
+
 }
 
 #dhead {
@@ -116,9 +120,9 @@ html,body,#outer{
 #article{
     width: 100% ;
     box-sizing : border-box;
-    height:95%;
+    height:98%;
     overflow-y:auto;
-    padding: 2% 2% 5% 3%;
+    padding: 5% 7% 7% 7%;
 }
 
 /* pre  {
@@ -215,15 +219,22 @@ ul li{
     transition:0.3s;
 }
 .button-exit{
-    position:abosolute; 
+    position:fixed; 
     margin-left:-3rem !important;
-    font-size:1rem;
-    color:black;
+    bottom: 1rem;
+    z-index:9999;
+    font-size:0.8rem;
+    color:white;
+    background-color:rgb(64, 74, 78);
+    transition:0.3s;
 }
 .button-hidden{
-    /* position:abosolute;  */
-    margin-left: 1rem !important;
-    font-size:1rem;
-    color:black;
-    float:left;
+    position:fixed; 
+    margin-left:1rem !important;
+    bottom: 1rem;
+    z-index:9999;
+    font-size:0.8rem;
+    color:white;
+    background-color: rgb(64, 74, 78);
+    transition:0.3s;
 }

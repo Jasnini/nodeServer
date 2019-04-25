@@ -32,6 +32,8 @@
                 }else{
                     this.isActive=['open','close'];
                 }
+                this.buttonClass='button-exit';
+                this.sidebarClass='sidebar-exit';
             },
             changeExpand(eventData){
                 this.expandedKey[0]=eventData;
@@ -64,8 +66,8 @@
             },
             changeDirExit(){
                 if(this.buttonClass==='button-exit'){
-                    this.buttonClass='button-hidden';
                     this.sidebarClass='sidebar-hidden';
+                    this.buttonClass='button-hidden';
                     console.log(this.sidebarClass);
                 }else{
                     this.buttonClass='button-exit';

@@ -16,7 +16,7 @@
             </div>
 
             <div class="link-container">
-                <a class="link"  v-for="item in link_personal_site" :href="item.link" target="_blank"> <img class="link-img" :src="item.img" ></img> {{ item.name }} </a>
+                <a class="link"  v-for="item in link_personal_site" :href="item.link" target="_blank"> <img class="link-img" :src="item.img" ></img> {{ item.name }}</a>
             </div>
         </div>
     </div>
@@ -71,18 +71,34 @@
         width: 6rem;
     }
     .link{
-        display:inline-block;
-        margin: 2rem 1rem;
+        display:flex;
+        align-items: center;
+        margin: 0.5rem 1rem;
+        height: 1.5rem;
+        /*line-height: 1.5rem;*/
         color: black;
-        font-size: 0.9rem;
+        font-size: 1rem;
         text-decoration: none;
+        padding: 0.2rem;
         border-bottom: 1px solid black;
     }
+    
     .link-img{
-        height: 0.9rem;
-        width: 0.9rem;
+        margin-right: 0.4rem;
+        height: 1.2rem;
+        width: 1.2rem;
+
     }
     .link-container{
+        display: flex;
+         align-items: center;
+         justify-content: center;
         text-align: center;
+        height: 2rem;
+    }
+    @media screen and (max-width: 650px){
+        .link-container{
+            display: inline-block;
+        }
     }
 </style>
