@@ -1,6 +1,7 @@
    
     import tree from './tree.vue';
     import './element-variables.scss';
+    import introduction from './introduction.vue';
     let outer=new Vue({
         el: '#outer',
         data:{
@@ -10,44 +11,32 @@
                   {id:3,name:'html',dir:'html笔记'},{id:4,name:'Vue',dir:'Vue笔记'},
                   {id:5,name:'reading',dir:'阅读小记'},{id:6,name:'about',dir:'关于'}],
             expandedKey: ['11'],
+            isActive: ['open','close'],
+            sidebarClass:'sidebar-exit',
+            buttonClass:'button-exit',
         },
         
         components:{
-            tree
+            tree,
+            introduction
         },
         methods:{
             changeList(listType){
                 // this.expandeNode(listType);
-
-                if (listType==='js'){
-                    // this.list1=['JS','JS原型链','this的用法','事件','块级作用域','Ajax'];//文件名
-                    console.log(this.expandedKey);
-                    this.expandedKey=['11'];
-                    console.log('p1');
-                }else if(listType==='css'){
-                    // this.list1=['CSS笔记'];
-                    this.expandedKey=['21'];
-                }else if(listType==='html'){
-                    // this.list1=['DOM笔记'];
-                    this.expandedKey=['31'];
-                }else if(listType==='Vue'){
-                    // this.list1=[''];
-                    this.expandedKey=['41'];
-                }else if(listType==='reading'){
-                    // this.list1=[''];
-                    this.expandedKey=['51'];
-                }else if(listType==='about'){
-                    // this.list1=[''];
-                    this.expandedKey=['61'];
+                let list1=['js','css','html','Vue','reading','about'];
+                let list2=['11','21','31','41','51','61'];
+                let index=list1.indexOf(listType);
+                this.expandedKey=[list2[index]];
+                if(listType === 'about'){
+                    this.isActive=['close','open'];
+                }else{
+                    this.isActive=['open','close'];
                 }
             },
             changeExpand(eventData){
                 this.expandedKey[0]=eventData;
                 console.log(this.expandedKey);
             },
-            // expandeNode(listType) {
-            //     this.expandedKey = map[listType];
-            // },
             loadData(arg) {
                 // console.log(id);
                 let id=arg[1];
@@ -65,6 +54,23 @@
                 };
                 xhr.open("get","/front-note/"+encodeURIComponent(item), true);
                 xhr.send(null);
+            },
+            changeInner(flag){
+                if (flag==='dir'){
+                    this.isActive=['open','close'];
+                }else{
+                    this.isActive=['close','open'];
+                }
+            },
+            changeDirExit(){
+                if(this.buttonClass==='button-exit'){
+                    this.buttonClass='button-hidden';
+                    this.sidebarClass='sidebar-hidden';
+                    console.log(this.sidebarClass);
+                }else{
+                    this.buttonClass='button-exit';
+                    this.sidebarClass='sidebar-exit';
+                }
             },
         },
 

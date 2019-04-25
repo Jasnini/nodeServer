@@ -5,7 +5,7 @@ var path = require('path');
 //2. 创建express服务器
 var server = express()
 
-server.use(express.static('statics')); //静态文件夹
+server.use(express.static('static')); //静态文件夹
 server.use(express.static('dist')); //静态文件夹
 
 

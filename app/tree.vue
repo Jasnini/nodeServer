@@ -88,7 +88,7 @@
             handleNodeClick(node1,obj,tree){
                 // let node=this.$refs.tree.getCurrentNode();
                 let node=node1;
-                console.log('pppp');
+                // console.log('pppp');
                 if(node.id>9){
                     this.$emit('loaddata',[node.label,node.id]);
                     // console.log(node.label);
@@ -99,7 +99,7 @@
                 }
             },
             changeexpand(nodedata,node,tree){
-                console.log('ppp2');
+                // console.log('ppp2');
                 let nodeid=nodedata.id;
                 this.$emit('changeexpand',nodeid);
                 
@@ -107,22 +107,24 @@
         },
         watch: {
             expandedkey(newExpandedkey,oldExpandedkey){
-                this.rePaint = false;
-                console.log('pppp1');
-                this.$nextTick(() => {
-                    this.rePaint = true;
-                    let dd=this;
+                if(newExpandedkey[0] !== '61'){
+                    this.rePaint = false;
+                    console.log(newExpandedkey);
                     this.$nextTick(() => {
-                        // console.log(newExpandedkey);
-                        let node=dd.$refs.tree.getNode(newExpandedkey[0]);
-                        dd.$refs.tree.setCurrentKey(newExpandedkey[0]);
-                        let nodedata=dd.$refs.tree.getCurrentNode();
-                        node.expanded=true;
-                        dd.handleNodeClick(nodedata);
-                        
-                        // console.log(node);
+                        this.rePaint = true;
+                        let dd=this;
+                        this.$nextTick(() => {
+                            console.log(newExpandedkey);
+                            let node=dd.$refs.tree.getNode(newExpandedkey[0]);
+                            dd.$refs.tree.setCurrentKey(newExpandedkey[0]);
+                            let nodedata=dd.$refs.tree.getCurrentNode();
+                            node.expanded=true;
+                            dd.handleNodeClick(nodedata);
+                            
+                            // console.log(node);
+                        });
                     });
-                });    
+                }    
                     // console.warn(newExpandedkey);
             }, 
         },

@@ -57,7 +57,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                test: /\.(eot|svg|ttf|woff|woff2|png)$/,
                 use: {
                     loader: 'url-loader'
                 }
@@ -68,7 +68,9 @@ module.exports = {
     resolve: {
         alias: {
             'vue': 'vue/dist/vue.js',
-            '@': path.resolve(__dirname)
+            '@': path.resolve(__dirname),
+            // 'static':path.resolve(__dirname, './static'),
+            // 'dist':path.resolve(__dirname,'./dist')
         },
         // 引入文件可不加后缀
         extensions: ['.js', '.vue', '.json']

@@ -34,17 +34,27 @@
             </div>
 
             <div id="dbody">
-                <nav id="list2" value='目录' >
-                    <div class="innner" >
+                <nav :class="sidebarClass" id="list2" value='目录'  >
+                    <div style="text-align:center;">
+                        <button class="label" @click="changeInner('dir')">目录</button><!---
+                        ---><button class="label" @click="changeInner('about')">关于</button>
+                    </div>
+
+                    <div class="innner" :class="isActive[0]">
                         <!-- <li class="list2" v-for="item in list1" @click="loadData(item)"> {{ item }} </li> -->
                         <!-- <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree> -->
-                        <tree :expandedkey="expandedKey" @loaddata="loadData($event)" @changeexpand="changeExpand($event)"></tree>
+                        <tree  :expandedkey="expandedKey" @loaddata="loadData($event)" @changeexpand="changeExpand($event)"></tree>  
                     </div>
+                    <div class="innner" :class="isActive[1]">
+                        <introduction > </introduction>
+                    </div>
+
                 </nav>
-                <section id="content" value="内容">
-                    <div id="article" v-html="article" />
-                </section>
                 
+                <section id="content" value="内容" style="position:relative !important;">
+                    <div id="article" v-html="article" ></div>
+                    <button :class="buttonClass" @click="changeDirExit()"  style="cursor:pointer; display:inline-block !important;" >&#9776;</button>
+                </section>
             </div>
             <div id="dend">
                     <div id="dend1">
