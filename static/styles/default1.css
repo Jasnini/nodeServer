@@ -97,3 +97,13 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-strong {
   font-weight: bold;
 }
+
+table
+  {
+  border-collapse:collapse;
+  }
+
+table,th, td
+  {
+  border: 1px solid black;
+  }

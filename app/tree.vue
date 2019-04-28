@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    import vue from 'vue';
+    import Vue from 'vue';
     import Tree from '@/node_modules/element-ui';
     import './element-variables.scss';
     Vue.use(Tree);
@@ -29,10 +29,10 @@
                     label: 'js笔记',
                     children: [{
                         id: '11',
-                        label: 'JS',
+                        label: 'js',
                     },{
                         id:'12',
-                        label:'JS原型链'
+                        label:'js原型链'
                     },{
                         id:'13',
                         label:'this的用法'
@@ -41,11 +41,26 @@
                         label:'事件'
                     },{
                         id:'15',
-                        label:'块级作用域'
+                        label:'js块级作用域'
                     },{
                         id:'16',
                         label:'Ajax'
-                    },
+                    },{
+                        id:'17',
+                        label:'async await'
+                    },{
+                        id:'18',
+                        label:'ES6 箭头函数'
+                    },{
+                        id:'19',
+                        label:'promise'
+                    },{
+                        id:'110',
+                        label:'内存泄漏'
+                    },{
+                        id:'111',
+                        label:'正则表达式'
+                    }
                     ]
                 },
                 {
@@ -53,7 +68,10 @@
                     label:'css笔记',
                     children: [{
                         id:'21',
-                        label: 'css',
+                        label: 'css'
+                    },{
+                        id:'22',
+                        label:'盒模型'
                     }]
                 },
                 {
@@ -61,7 +79,7 @@
                     label:'html笔记',
                     children: [{
                         id:'31',
-                        label: 'DOM笔记',
+                        label: 'DOM',
                     }]
                 },
                 {
@@ -69,7 +87,10 @@
                     label:'Vue笔记',
                     children: [{
                         id:'41',
-                        label: 'hahaa',
+                        label: 'Vue 解决this.$refs.content1.focus();失效的问题'
+                    },{
+                        id:'42',
+                        label: 'Vue.js'
                     }]
                 },
                 {
@@ -80,7 +101,29 @@
                         label: 'xxx',
                     },
                     ]
-                },
+                },{
+                    id:'6',
+                    label:'其他',
+                    children: [{
+                        id:'61',
+                        label:'js前端面试问题汇总'
+                    },{
+                        id:'62',
+                        label:'Https',
+                    },{
+                        id:'63',
+                        label:'session cookie token'
+                    },{
+                        id:'64',
+                        label:'web性能优化的方法'
+                    },{
+                        id:'65',
+                        label:'web缓存'
+                    },{
+                        id:'66',
+                        label:'几种攻击类型'
+                    }]
+                }
                 ],
             }
         },
@@ -107,7 +150,7 @@
         },
         watch: {
             expandedkey(newExpandedkey,oldExpandedkey){
-                if(newExpandedkey[0] !== '61'){
+                if(newExpandedkey[0] !== '71'){
                     this.rePaint = false;
                     console.log(newExpandedkey);
                     this.$nextTick(() => {

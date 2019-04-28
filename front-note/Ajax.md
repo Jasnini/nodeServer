@@ -1,4 +1,5 @@
-#XMLHttpRequest
+# XMLHttpRequest
+
 1、 xhr.readyState
 
 - 0: 未初始化。无open()  
@@ -79,35 +80,38 @@ xhr.open("post","postexample.php",true);
 
 #XMLHttpRequest 2级
 1、表单化数据使用构造函数FormData()，不需要设置头部信息，不需要使用序列化serialie()函数
+
+    ```javascript
+    var xhr = new XMLHttpRequest();
+    xhr.open("post","postexample.php",true);
+    var form = document.getElementById('user-info');
+    xhr(new FormData(form)); //FormData()序列化表单数据，xhr自动识别FormData对象，并配置适当的头部
+    ```
+
+2、xhr的timeout属性
+
 ```javascript
-var xhr = new XMLHttpRequest();
-xhr.open("post","postexample.php",true);
-var form = document.getElementById('user-info');
-xhr(new FormData(form)); //FormData()序列化表单数据，xhr自动识别FormData对象，并配置适当的头部
+
 ```
 
-2、xhr的timeout属性 
-
-```javascript
-
-```
 3、overrideMimeType()方法，实现重写XHR响应的MIME类型；服务器端会根据MIME类型确定响应头部的Content-type
 4、process事件
 5、load事件
 
-#跨域资源共享 CORS
+# 跨域资源共享 CORS
 
 跨域的方法
 
 1、浏览器实现CORS的方法
 2、Preflight请求，使用OPTIONS
 3、其他CORS的方法：
-- 图象Ping；
-- JSONP:
-``` javascript
-script.src = "http://freegeoip.net/json/?callback = handleResponse"
-```
+    - 图象Ping；
+    - JSONP:
+
+    ``` javascript
+    script.src = "http://freegeoip.net/json/?callback = handleResponse"
+    ```
 
 4、检查浏览器是否支持简单的CORS请求：首先判断是不是凭证（cookie、HTTP认证、SSL证明）发送；然后判断是不是XDomainRequest对象是否存在；最后
 
-#跨域资源拦截 CORB
+# 跨域资源拦截 CORB

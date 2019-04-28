@@ -97,3 +97,11 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-strong {
   font-weight: bold;
 }
+.prettyprint{
+  font-weight: bold;
+  color: rgb(54, 53, 53);
+  background: #c2e2c3;
+  padding: 0px 6px;
+  line-height: 0px;
+  font-size: 16px;
+}

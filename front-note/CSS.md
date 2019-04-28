@@ -46,3 +46,7 @@ overflow: auto
 #CSS 使用技巧
 
 1、margin-bottom 通常不能用来调整块级元素的位置。方法：将当前元素的父级元素 display: relative 当前元素 display:positive。然后设置bottom、top、left、right等属性值大小。
+
+#CSS 单位 em、px、rem（IE不支持）
+- 改变em大小的方法：结合 front-size 属性，父元素的frot-size 对子元素的em单位有效。可以通过em进行 弹性页面的设置
+- rem也可以实现弹性布局，它是 相对于根元素的 font-size的大小。

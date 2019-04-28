@@ -69,6 +69,7 @@ module.exports = {
         alias: {
             'vue': 'vue/dist/vue.js',
             '@': path.resolve(__dirname),
+            'prettify':'./node_modules/showdown-prettify/src/showdown-prettify.js'
             // 'static':path.resolve(__dirname, './static'),
             // 'dist':path.resolve(__dirname,'./dist')
         },

@@ -1,4 +1,6 @@
-#原型对象
+
+# 原型对象
+
 1、创建了一个函数之后，会自动为该函数创建一个prototype属性，指向原型对象。所有的原型对象会自动创建一个constructor(构造器)属性，它是指向前面函数的指针。
 
 2、一个实例的原型指针指向构造函数的原型对象；new出的实例本身
@@ -14,6 +16,7 @@ console.log(b.constructor) // success，间接访问b的原型的constructor
 3、只有构造函数才有prototype（原型对象）
 
 4、构造原型链方法
+
 ```javascript
 function SuperType(name){
     this.name=name;
