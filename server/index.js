@@ -1,4 +1,5 @@
 // 1. 导入express
+
 let express = require('express');
 let path = require('path');
 
@@ -16,43 +17,14 @@ server.get(
             let fs = require('fs');
             let showdown = require('showdown');
             let showdownHighlight = require('showdown-highlight');
+            // require('../node_modules/showdown-prettify/src/showdown-prettify.js');
+            require('../node_modules/showdown-prettify/src/showdown-prettify.js');
 
             // var pathname = decodeURIComponent(url.parse(request.url).pathname);
             let pathname = decodeURIComponent(request.path);
             console.log(pathname);
 
-            /* eslint-disable */
-            showdown.extension('codehighlight', function() {
-              function htmlunencode(text) {
-                return (
-                  text
-                    .replace(/&amp;/g, '&')
-                    .replace(/&lt;/g, '<')
-                    .replace(/&gt;/g, '>')
-                  );
-              }
-              return [
-                {
-                  type: 'output',
-                  filter: function (text, converter, options) {
-                    // use new shodown's regexp engine to conditionally parse codeblocks
-                    var left  = '<pre><code\\b[^>]*>',
-                        right = '</code></pre>',
-                        flags = 'g',
-                        replacement = function (wholeMatch, match, left, right) {
-                          // unescape match to prevent double escaping
-                          match = htmlunencode(match);
-                          return left + hljs.highlightAuto(match).value + right;
-                        };
-                    return showdown.helper.replaceRecursiveRegExp(text, replacement, left, right, flags);
-                  }
-                }
-              ];
-            });
-            // showdown.setFlavor('github');
-          
-          // /* eslint-enable */
-
+           
             fs.readFile('.' + pathname + '.md', 'utf8', function(err, data) {
 
                 if (err) {
@@ -65,8 +37,7 @@ server.get(
                     'tasklists': false,
                     'ghCodeBlocks': true,
                     tables: true,
-                    extensions: [codehighlight],
-
+                    extensions: [showdownHighlight],
                 });
                 let html = converter.makeHtml(data);
 
