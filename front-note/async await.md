@@ -1,0 +1,4 @@
+##使用async定义异步执行函数
+
+1. 用async声明的函数，会隐藏返回一个Promise的对象，执行成功时候，会使用resolve函数捕获返回值，执行抛出错误会调用reject函数。
+2. await声明的promise函数，会停止async函数的执行，直到promise函数执行完成，因为await的修饰让async函数看起来像是同步执行的函数，事实上是将promise函数转化成了async异步执行函数
