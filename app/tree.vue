@@ -16,7 +16,7 @@
 
     export default{
         name:'tree',
-        props: ['expandedkey'],
+        props: ['expandedkey','initialId'],
         data(){
             return {
                 rePaint: true,
@@ -174,7 +174,7 @@
         mounted: 
             function () {
                 this.$nextTick(function () {
-                    this.$refs.tree.setCurrentKey('11');
+                    this.$refs.tree.setCurrentKey(this.$route.query.id);
                     let node1=this.$refs.tree.getCurrentNode();
                     console.log(node1);
                     this.handleNodeClick(node1);

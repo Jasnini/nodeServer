@@ -54,7 +54,7 @@ server.get(
     }
 );
 
-server.get('/', function(req, res) {
+server.get('/:fileName', function(req, res) {
     res.sendFile(path.resolve('/dist/index.html'));
 });
 

@@ -271,4 +271,7 @@ table,th, td{
     height: 528px; 
 }
   
-  
+
+[v-cloak] {
+    display: none !important;
+}
