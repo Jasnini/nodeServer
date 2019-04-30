@@ -10,7 +10,6 @@ import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 
 import 'highlight.js/styles/github.css';
-import { runInNewContext } from 'vm';
 
 const User={
     props: ['fileName'],
@@ -48,7 +47,6 @@ const outer = new Vue({
         isActive: ['open', 'close'],
         sidebarClass: 'sidebar-exit',
         buttonClass: 'button-exit',
-        initialId: '',
         // isRouterAlive: true,
     },
     methods: {
@@ -127,7 +125,11 @@ const outer = new Vue({
     created(){
         console.log(this.$route.query.id);
         this.initialId=this.$route.query.id;
-        this.expandedKey=[this.$route.query.id];
+        let id='11';
+        if (this.$route.query.id){
+            id=this.$route.query.id;
+        }
+        this.expandedKey=[id];
         // this.isRouterAlive = false
         // this.$nextTick(() => (this.isRouterAlive = true))
     }

@@ -54,10 +54,9 @@ server.get(
     }
 );
 
-server.get('/:fileName', function(req, res) {
+server.get('/', function(req, res) {
     res.sendFile(path.resolve('/dist/index.html'));
 });
-
 // server.get('/styles/indexStyle.css',function(req,res){
 //     res.sendFile("styles/indexStyle.css",{root: __dirname});
 // })
