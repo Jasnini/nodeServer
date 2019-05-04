@@ -3,6 +3,7 @@
 ## DOM
 
 1、document, element, text, artt, documentfregment, documentype，comment 7种节点类型
+
 2、DOM 没有加载完，script执行了会发生错误。这种情况又两种解决方法：
 
 - a 将js引用发在body 的最后面
@@ -43,9 +44,9 @@ function DOMchildTra(parent, callback){
 }
 ```
 
-##HTML
+## HTML
 
 1、空格：
 
-- \&emsp; 1个字符
-- \&ensp; 半个字符
+- `&emsp;` 1个字符
+- `&ensp;` 半个字符

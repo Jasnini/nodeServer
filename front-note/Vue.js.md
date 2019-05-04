@@ -214,20 +214,20 @@
 
     ```javascript
     //通过组件的内建方法 $emit() 抛出事件
-    ````
+    ```
 
 21. Vue组件的两种构造方式：通过html模板调用；通过构造函数显示调用
 22. v-model用于组件
 
-```javascript
-<input v-model="text">
-//相当于
-<input v-bind:value="text" v-on:input="text=$event.target.value" >//v-bind用于初始化，v-on用于监听input事件
-//v-model用于组件
-<v-component v-model='text'> </v-component>
-//component
-Vue.component('v-component',{
-    props:['value'],
-    template:<input v-bind:value='value' v-on:input='$emit('input',$event.target.value)'></input>
-})
-```
+    ```javascript
+    <input v-model="text">
+    //相当于
+    <input v-bind:value="text" v-on:input="text=$event.target.value" >//v-bind用于初始化，v-on用于监听input事件
+    //v-model用于组件
+    <v-component v-model='text'> </v-component>
+    //component
+    Vue.component('v-component',{
+        props:['value'],
+        template:<input v-bind:value='value' v-on:input='$emit('input',$event.target.value)'></input>
+    })
+    ```

@@ -64,6 +64,7 @@ const outer = new Vue({
             this.buttonClass = 'button-exit';
             this.sidebarClass = 'sidebar-exit';
         },
+
         changeExpand(eventData) {
             this.expandedKey[0] = eventData;
             console.log(this.expandedKey);
@@ -79,10 +80,11 @@ const outer = new Vue({
             let id = arg.id;
             console.log(id);
             let item = arg.dir;
-            let ele = this.dirs.filter((el) => { return el.dir === item && id <= 9 })[0];
+            let ele = this.dirs.filter((el) => { return el.id === id && id <= 9 })[0];
+            
             if (ele) {
                 // console.log(ele);
-                // console.log('woqu');
+                console.log('woqu');
                 this.changeList(ele.name);
             }else{
                 const xhr = new XMLHttpRequest();
@@ -119,7 +121,7 @@ const outer = new Vue({
 
     watch: {
         // 如果路由有变化，会再次执行该方法
-        '$route'(){this.fetchData(this.$route.query)},
+        '$route'(){console.log(this.$route.query);console.log('111112');this.fetchData(this.$route.query)},
       },
 
     created(){

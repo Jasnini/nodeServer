@@ -9,6 +9,7 @@
 - 4：完成。已经接收到全部响应数据，而且可以在客户端使用
 
 2、var xhr=new XMLHttpRequest(); 支持IE7+
+
 3、响应数据：
 
 - responseText 作为响应返回的文本
@@ -29,6 +30,7 @@
 - User-Agent 浏览器的用户代理字符串
 
 5、xhr.setRequesstHeader()自定义请求头部，必须在open()之后，send()之前
+
 6、
 
 - xhr.getResponseHeader('MyHeader');可以取得响应头部信息；
@@ -78,7 +80,8 @@ xhr.open("post","postexample.php",true);
 
 ```
 
-#XMLHttpRequest 2级
+## XMLHttpRequest2级
+
 1、表单化数据使用构造函数FormData()，不需要设置头部信息，不需要使用序列化serialie()函数
 
     ```javascript
@@ -95,15 +98,19 @@ xhr.open("post","postexample.php",true);
 ```
 
 3、overrideMimeType()方法，实现重写XHR响应的MIME类型；服务器端会根据MIME类型确定响应头部的Content-type
+
 4、process事件
+
 5、load事件
 
-# 跨域资源共享 CORS
+## 跨域资源共享 CORS
 
 跨域的方法
 
 1、浏览器实现CORS的方法
+
 2、Preflight请求，使用OPTIONS
+
 3、其他CORS的方法：
     - 图象Ping；
     - JSONP:
@@ -114,4 +121,4 @@ xhr.open("post","postexample.php",true);
 
 4、检查浏览器是否支持简单的CORS请求：首先判断是不是凭证（cookie、HTTP认证、SSL证明）发送；然后判断是不是XDomainRequest对象是否存在；最后
 
-# 跨域资源拦截 CORB
+## 跨域资源拦截 CORB
