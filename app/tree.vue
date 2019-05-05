@@ -91,6 +91,9 @@
                     },{
                         id:'42',
                         label: 'Vue.js'
+                    },{
+                        id:'43',
+                        label: 'VueRouter'
                     }]
                 },
                 {
