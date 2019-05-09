@@ -16,7 +16,7 @@
             </div>
 
             <div class="link-container">
-                <a class="link"  v-for="item in link_personal_site" :href="item.link" target="_blank"> <img class="link-img" :src="item.img" ></img> {{ item.name }}</a>
+                <a class="link"  v-for="item in link_personal_site" :href="item.link" target="_blank"> <img class="link-img" :src="item.img"/> {{ item.name }}</a>
             </div>
         </div>
     </div>
@@ -45,7 +45,13 @@
                     link: 'https://github.com/Jasnini',
                     name: 'github',
                     img: './images/github.svg',
-                }]
+                },{
+                    link: './todolist',
+                    name: 'todolist',
+                    img: './images/write.svg',
+
+                }
+                ]
 
             }
         },
@@ -62,43 +68,43 @@
 </script>
 <style>
     .head-container{
-        text-align: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        text-align: center!important;
+        margin-top: 1rem!important;
+        margin-bottom: 1rem!important;
     }
     img{
-        height:6rem;
-        width: 6rem;
+        height:6rem!important;
+        width: 6rem!important;
     }
     .link{
-        display:flex;
-        align-items: center;
-        margin: 0.5rem 1rem;
-        height: 1.5rem;
+        display:flex!important;
+        align-items: center!important;
+        margin: 0.5rem 0.5rem!important;
+        height: 1.5rem!important;
         /*line-height: 1.5rem;*/
-        color: black;
-        font-size: 1rem;
-        text-decoration: none;
-        padding: 0.2rem;
-        border-bottom: 1px solid black;
+        color: black!important;
+        font-size: 1rem!important;
+        text-decoration: none!important;
+        padding: 0.2rem!important;
+        border-bottom: 1px solid black!important;
     }
     
     .link-img{
-        margin-right: 0.4rem;
-        height: 1.2rem;
-        width: 1.2rem;
+        margin-right: 0.2rem!important;
+        height: 1.2rem!important;
+        width: 1.2rem!important;
 
     }
     .link-container{
-        display: flex;
-         align-items: center;
-         justify-content: center;
-        text-align: center;
-        height: 2rem;
+        display: flex!important;
+         align-items: center!important;
+         justify-content: center!important;
+        text-align: center!important;
+        height: 2rem!important;
     }
     @media screen and (max-width: 650px){
         .link-container{
-            display: inline-block;
+            display: inline-block!important;
         }
     }
 </style>

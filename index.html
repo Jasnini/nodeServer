@@ -7,7 +7,7 @@
         <title>Dali的blog</title>
         <link rel="shortcut icon" href="./images/icon.png" type="image/x-icon"/>
         <link rel="stylesheet" href="./styles/github.css" type="text/css"/>
-        <link rel="stylesheet" href="./styles/indexStyle.css" type="text/css"/>
+        <!-- <link rel="stylesheet" href="./styles/indexStyle.css" type="text/css"/> -->
         <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
         <!-- <script src="./statics/dist/bundle.js" async></script>     -->
         <!-- <script src="./js/importNoteClient.js" async> </script> -->
@@ -53,7 +53,8 @@
                 
                 <section id="content" value="内容" style="position:relative !important;">
                     <!-- <div id="article" v-html="article" ></div> -->
-                    <div id="article" v-html="article" v-cloak></div>
+                    <!-- <div id="article" v-html="article" v-cloak></div> -->
+                    <router-view> </router-view>
                     <button :class="buttonClass" @click="changeDirExit()"  style="cursor:pointer; display:inline-block !important;" >&#9776;</button>
                 </section>
             </div>

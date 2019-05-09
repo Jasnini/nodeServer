@@ -192,7 +192,7 @@
 
 </script>
 
-<style> 
+<style > 
     .el-tree{
         background-color: rgb(238, 237, 237) !important;
          
@@ -200,7 +200,7 @@
     
     .el-tree-node__label{
         font-size: 1.1rem !important;
-        color: black;
+        color: black!important;
     }
     .el-tree-node__children  .el-tree-node__label{
         font-size: 0.93rem !important;
@@ -208,7 +208,7 @@
     }
 
     .el-tree-node__content {
-        height: 3rem;
+        height: 3rem!important;
         padding-left: 5px !important;
   }
   

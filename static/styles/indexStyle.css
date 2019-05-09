@@ -10,7 +10,7 @@ html,body,#outer{
     html,.js-note{
         font-size: 12px;
     }
-    #article{
+    #comparticle{
         font-size: 10px;
     }
 
@@ -118,7 +118,7 @@ html,body,#outer{
     height: 100%;
 }
 
-#article{
+#comparticle{
     width: 100% ;
     box-sizing : border-box;
     height:98%;
@@ -168,7 +168,7 @@ ul li{
     display: none;
 }
 
-#article p,code{
+#comparticle p,code{
     word-wrap:break-word !important; 
     width: 100% !important;
     word-break:break-all !important;

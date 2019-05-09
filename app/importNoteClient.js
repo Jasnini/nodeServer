@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import tree from './tree.vue';
 import './element-variables.scss';
+require('../static/styles/indexStyle.css');
 import introduction from './introduction.vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
@@ -9,22 +10,43 @@ import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 
-import 'highlight.js/styles/github.css';
+// import 'highlight.js/styles/github.css';
+import comparticle from './article.vue';
 
-const User={
-    props: ['fileName'],
-    template: '<div></div>',
 
-};
+// const User={
+//     props: ['fileName'],
+//     template: '<div></div>',
+// };
+function fetchData1(arg){
+    const item = arg.dir;
+    const xhr = new XMLHttpRequest();
+    
+    xhr.onload = () => {   
+        // console.log(text1); 
+    };
+    xhr.open('get', '/front-note/' + encodeURIComponent(item), false);
+    xhr.send(null);
+    const text1 = xhr.responseText; 
+    return text1;
+}
+
+
 
 const router= new VueRouter({
     // mode: 'history',
     routes: [
         {
-          path: '/article/:fileName',
-          name: 'a',
-          component: User,
-        }
+          path: '/article/:filename',
+          name: 'comparticle',
+          component: comparticle,
+          props: (route)=>{ const article1=fetchData1(route.query);return {article:article1};},
+        },
+        // {
+        //    path: '/todolist',
+        //    name: 'todolist',
+        //    component: todolist,
+        // }
     ]
 });
 
@@ -34,7 +56,7 @@ const outer = new Vue({
 
     components: {
         tree,
-        introduction
+        introduction,
     },
     data: {
         list1: [],
@@ -93,14 +115,14 @@ const outer = new Vue({
                 if(this.expandedKey[0] !== id){
                     this.expandedKey=[id];
                 }
-                console.log('o');
-                const xhr = new XMLHttpRequest();
-                xhr.onload = () => {
-                    const text1 = xhr.responseText;
-                    this.article = text1;
-                };
-                xhr.open('get', '/front-note/' + encodeURIComponent(item), true);
-                xhr.send(null);
+                // console.log('o');
+                // const xhr = new XMLHttpRequest();
+                // xhr.onload = () => {
+                //     const text1 = xhr.responseText;
+                //     this.article = text1;
+                // };
+                // xhr.open('get', '/front-note/' + encodeURIComponent(item), true);
+                // xhr.send(null);
             }
         },
         loadData(arg) {
@@ -125,7 +147,7 @@ const outer = new Vue({
     },
 
     watch: {
-        // 如果路由有变化，会再次执行该方法
+        //如果路由有变化，会再次执行该方法
         '$route'(){console.log(this.$route.query);console.log('yyy');this.fetchData(this.$route.query)},
       },
 

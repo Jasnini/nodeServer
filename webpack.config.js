@@ -1,19 +1,24 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-
+// const ExtractTextPlugin = require('extract-text-webpack-plugin'); 
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     // 环境
     mode: "development",
     // 唯一入口
-    entry: path.resolve(__dirname, 'app/importNoteClient.js'),
+    entry: {
+        index: path.resolve(__dirname, 'app/importNoteClient.js'),
+        todolist: path.resolve(__dirname, 'app/todoList.js')
+},
     // 出口
     output: {
         // 打包后文件所在目录
         path: path.resolve(__dirname, 'dist'),
         // 文件名
-        filename: 'bundle.js'
+        filename: 'js/[name].js'
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -21,7 +26,20 @@ module.exports = {
             template: 'index.html',
             inject: true
         }),
-        new VueLoaderPlugin()
+        new HtmlWebpackPlugin({
+            filename: 'todolist.html',
+            template: 'todoList.html',
+            inject: true
+        }),
+        new VueLoaderPlugin(),
+        // new ExtractTextPlugin({
+        //         filename: 'css/[name].css', // 配置提取出来的css名称
+        //         allChunks: false
+        //     }),
+        new OptimizeCSSAssetsPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css",
+          })
     ],
     module: {
         rules: [
@@ -34,14 +52,32 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'vue-loader',
                 }
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
+                use: [
+                  MiniCssExtractPlugin.loader,
+                  "css-loader"
+                ]
+              },
+            // {
+            //     test: /\.(css)$/,
+            //     exclude: /node_modules/,
+            //     use: ExtractTextPlugin.extract({
+            //         fallback: {// 这里表示不提取的时候，使用什么样的配置来处理css
+            //             loader: 'style-loader',
+            //         },
+            //         use: [ // 提取的时候，继续用下面的方式处理
+            //             {
+            //                 loader: 'css-loader',
+            //             }
+            //         ]
+            //     })
+            // },
             {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader','sass-loader']
