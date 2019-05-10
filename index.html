@@ -13,8 +13,12 @@
         <!-- <script src="./js/importNoteClient.js" async> </script> -->
         <!-- <script src="https://unpkg.com/element-ui/lib/index.js" ></script> -->
         <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
-
-
+        <style> 
+            #outer {
+                background-image: url('./images/background.jpg');
+                background-repeat:repeat-y;
+            }
+        </style>
     </head>
     <body>
         <div id= "outer">
@@ -34,29 +38,30 @@
             </div>
 
             <div id="dbody">
-                <nav :class="sidebarClass" id="list2" value='目录'  >
-                    <div style="text-align:center;">
-                        <button class="label" @click="changeInner('dir')">目录</button><!---
-                        ---><button class="label" @click="changeInner('about')">关于</button>
-                    </div>
+                <div id="dbody2">
+                    <nav :class="sidebarClass" id="list2" value='目录'  >
+                        <div style="text-align:center;">
+                            <button class="label" @click="changeInner('dir')">目录</button><!---
+                            ---><button class="label" @click="changeInner('about')">关于</button>
+                        </div>
 
-                    <div class="innner" :class="isActive[0]">
-                        <!-- <li class="list2" v-for="item in list1" @click="loadData(item)"> {{ item }} </li> -->
-                        <!-- <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree> -->
-                        <tree  :expandedkey="expandedKey"  @loaddata="loadData($event)" @changeexpand="changeExpand($event)"></tree>  
-                    </div>
-                    <div class="innner" :class="isActive[1]">
-                        <introduction > </introduction>
-                    </div>
-
-                </nav>
-                
-                <section id="content" value="内容" style="position:relative !important;">
-                    <!-- <div id="article" v-html="article" ></div> -->
-                    <!-- <div id="article" v-html="article" v-cloak></div> -->
-                    <router-view> </router-view>
-                    <button :class="buttonClass" @click="changeDirExit()"  style="cursor:pointer; display:inline-block !important;" >&#9776;</button>
-                </section>
+                        <div class="innner" :class="isActive[0]">
+                            <!-- <li class="list2" v-for="item in list1" @click="loadData(item)"> {{ item }} </li> -->
+                            <!-- <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree> -->
+                            <tree  :expandedkey="expandedKey"  @loaddata="loadData($event)" @changeexpand="changeExpand($event)"></tree>  
+                        </div>
+                        <div class="innner" :class="isActive[1]">
+                            <introduction > </introduction>
+                        </div>
+                    </nav>
+                    
+                    <section id="content" value="内容" style="position:relative !important;">
+                        <!-- <div id="article" v-html="article" ></div> -->
+                        <!-- <div id="article" v-html="article" v-cloak></div> -->
+                        <router-view> </router-view>
+                        <button :class="buttonClass" @click="changeDirExit()"  style="cursor:pointer; display:inline-block !important;" >&#9776;</button>
+                    </section>
+                </div>
             </div>
             <div id="dend">
                     <div id="dend1">

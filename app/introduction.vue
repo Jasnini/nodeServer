@@ -14,9 +14,13 @@
                     <span> {{ item.type }} </span>
                 </div>
             </div>
-
-            <div class="link-container">
-                <a class="link"  v-for="item in link_personal_site" :href="item.link" target="_blank"> <img class="link-img" :src="item.img"/> {{ item.name }}</a>
+            <div id="pp">
+                <div class="link-container">
+                    <a class="link"  v-for="item in link_personal_site" :href="item.link" target="_blank"> <img class="link-img" :src="item.img"/> {{ item.name }}</a>
+                </div>
+            </div>
+            <div>
+                
             </div>
         </div>
     </div>
@@ -79,11 +83,11 @@
     .link{
         display:flex!important;
         align-items: center!important;
-        margin: 0.5rem 0.5rem!important;
-        height: 1.5rem!important;
+        margin: 0.4rem 0.4rem!important;
+        height: 1rem!important;
         /*line-height: 1.5rem;*/
         color: black!important;
-        font-size: 1rem!important;
+        font-size: 0.9rem!important;
         text-decoration: none!important;
         padding: 0.2rem!important;
         border-bottom: 1px solid black!important;
@@ -101,10 +105,19 @@
          justify-content: center!important;
         text-align: center!important;
         height: 2rem!important;
+        padding: 0.5rem;
     }
-    @media screen and (max-width: 650px){
+    @media screen and (max-width: 1200px){
         .link-container{
             display: inline-block!important;
+        }
+        #pp{
+            display: flex;
+            justify-content: center;
+        }
+        .link{
+           font-size: 1rem!important;
+
         }
     }
 </style>

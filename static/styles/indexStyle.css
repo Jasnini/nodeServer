@@ -1,36 +1,53 @@
+@charset "utf-8";
 
-html,body,#outer{
+body{
+    font-size: 18px;
+    width:100%;
+    font-size:18px;
+}
+#outer{
     margin:0 0 0 0;
     width: 100%;
-    height: 100%;
-    font-size: 18px;
+    
 }
 
-@media screen and (max-width: 500px){
+
+
+@media screen and (max-width: 700px){
     html,.js-note{
-        font-size: 12px;
+        font-size: 12px!important;
     }
     #comparticle{
-        font-size: 10px;
+        font-size: 10px!important;
     }
 
     #list2{
         flex:1.5;
     }
 
+    #dheader2{
+        width: 100% !important;
+    }
+    #dbody2{
+        width: 100% !important;
+    }
+
+
 }
 
 #dhead {
-    height: 9rem;
+    height: 6rem;
     background-color: rgba(241, 241, 241, 0.932);
+    background-color:rgb(91, 126, 139);
+    opacity:0.90 ;
+    padding-top: 10px;
 }
 
 #dheader2 {
     display:flex;
     height: 100%;
-    width: 80%;
+    width: 70%;
     margin: 0  auto;
-    background-color:rgb(64, 74, 78);
 }
 
 #dheader3 {
@@ -75,12 +92,21 @@ html,body,#outer{
     margin-bottom: 0.5rem;
     
 }
-
-
 #dbody {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+#dbody2{
     display: flex;
     height: 700px;
+    width:75%;
+    margin: 2px 0 2px 0;
+    opacity:0.95 ;
+    z-index:9999 ;
 }
+
 #list2,.innner {
     
     height: 100%;
@@ -108,6 +134,7 @@ html,body,#outer{
     padding-left: 40%;
     padding-top: 3%;
     padding-bottom: 3%;
+    height: 99%;
     
 }
 
@@ -121,9 +148,12 @@ html,body,#outer{
 #comparticle{
     width: 100% ;
     box-sizing : border-box;
-    height:98%;
+    height:100%;
     overflow-y:auto;
     padding: 5% 7% 7% 7%;
+    background-color: white;
+    font-size:1rem;
+    line-height: 1.7rem;
 }
 
 /* pre  {
@@ -140,10 +170,12 @@ html,body,#outer{
     height: 3rem;
     position: relative;
     background-color: rgb(64, 74, 78);
+    z-index:1 ;
 }
 
 #dend1{
     height: 100%;
+    z-index:2 ;
 }
 
 
@@ -223,7 +255,7 @@ ul li{
     position:fixed; 
     margin-left:-3rem !important;
     bottom: 1rem;
-    z-index:9999;
+    /* z-index:9999 !important; */
     font-size:0.8rem;
     color:white;
     background-color:rgb(64, 74, 78);
@@ -235,7 +267,7 @@ ul li{
     position:fixed; 
     margin-left:1rem !important;
     bottom: 1rem;
-    z-index:9999;
+    /* z-index:9999 !important; */
     font-size:0.8rem;
     color:white;
     background-color: rgb(64, 74, 78);
