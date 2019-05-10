@@ -7,12 +7,6 @@
         <title>Dali的blog</title>
         <link rel="shortcut icon" href="./images/icon.png" type="image/x-icon"/>
         <link rel="stylesheet" href="./styles/github.css" type="text/css"/>
-        <!-- <link rel="stylesheet" href="./styles/indexStyle.css" type="text/css"/> -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-        <!-- <script src="./statics/dist/bundle.js" async></script>     -->
-        <!-- <script src="./js/importNoteClient.js" async> </script> -->
-        <!-- <script src="https://unpkg.com/element-ui/lib/index.js" ></script> -->
-        <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
         <style> 
             #outer {
                 background-image: url('./images/background.jpg');
@@ -29,7 +23,7 @@
                     </div>
                     <div id="dheader4">
                         <ul class="list1">
-                            <li class='dir' v-for="item in dirs">
+                            <li class='dir' v-for="item in showDir">
                                 <a class='js-note' @click="changeList(item.name)" v-cloak>{{ item.dir }}</a>
                             </li>
                         </ul>
@@ -46,18 +40,17 @@
                         </div>
 
                         <div class="innner" :class="isActive[0]">
-                            <!-- <li class="list2" v-for="item in list1" @click="loadData(item)"> {{ item }} </li> -->
-                            <!-- <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree> -->
                             <tree  :expandedkey="expandedKey"  @loaddata="loadData($event)" @changeexpand="changeExpand($event)"></tree>  
                         </div>
                         <div class="innner" :class="isActive[1]">
                             <introduction > </introduction>
                         </div>
+                        <div class="innner" :class="isActive[2]">
+                            <tool></tool>
+                        </div>
                     </nav>
                     
                     <section id="content" value="内容" style="position:relative !important;">
-                        <!-- <div id="article" v-html="article" ></div> -->
-                        <!-- <div id="article" v-html="article" v-cloak></div> -->
                         <router-view> </router-view>
                         <button :class="buttonClass" @click="changeDirExit()"  style="cursor:pointer; display:inline-block !important;" >&#9776;</button>
                     </section>

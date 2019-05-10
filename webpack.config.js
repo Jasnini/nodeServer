@@ -10,8 +10,8 @@ module.exports = {
     mode: "development",
     // 唯一入口
     entry: {
-        index: path.resolve(__dirname, 'app/importNoteClient.js'),
-        todolist: path.resolve(__dirname, 'app/todoList.js')
+        index: path.resolve(__dirname, 'app/main.js'),
+        // todoList: path.resolve(__dirname, 'app/todoList.js')
 },
     // 出口
     output: {
@@ -26,11 +26,11 @@ module.exports = {
             template: 'index.html',
             inject: true
         }),
-        new HtmlWebpackPlugin({
-            filename: 'todolist.html',
-            template: 'todoList.html',
-            inject: true
-        }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'todoList.html',
+        //     template: 'todoList.html',
+        //     inject: true
+        // }),
         new VueLoaderPlugin(),
         // new ExtractTextPlugin({
         //         filename: 'css/[name].css', // 配置提取出来的css名称

@@ -57,20 +57,9 @@ server.get(
 server.get('/', function(req, res) {
     res.sendFile(path.resolve(__dirname,'../dist/index.html'));
 });
-server.get('/todolist/', function(req, res) {
-    res.sendFile(path.resolve(__dirname,'../dist/todolist.html'));
-});
-// server.get('/styles/indexStyle.css',function(req,res){
-//     res.sendFile("styles/indexStyle.css",{root: __dirname});
-// })
-
-// server.get("/js/importNoteClient.js",function(req,res){
-//     res.sendFile("js/importNoteClient.js",{root: __dirname});
-// })
-
-// server.get("/images/icon.jpg",function(req,res){
-//     res.sendFile("images/icon.jpg",{root: __dirname});
-// })
+// server.get('/todoList/', function(req, res) {
+//     res.sendFile(path.resolve(__dirname,'../dist/todoList.html'));
+// });
 
 // 4. 绑定端口
 server.listen(4040);

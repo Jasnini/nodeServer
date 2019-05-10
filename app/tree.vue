@@ -106,7 +106,7 @@
                     ]
                 },{
                     id:'6',
-                    label:'其他',
+                    label:'其他文章',
                     children: [{
                         id:'61',
                         label:'js前端面试问题汇总'
@@ -154,9 +154,8 @@
         watch: {
             expandedkey(newExpandedkey,oldExpandedkey){
                 // if(newExpandedkey[0]!==oldExpandedkey[0]){
-                    if(newExpandedkey[0] !== '71'){
+                    if(newExpandedkey[0] !== '71' && newExpandedkey[0] !== '81'){
                         this.rePaint = false;
-                        
                         this.$nextTick(() => {
                             this.rePaint = true;
                             let dd=this;
@@ -178,14 +177,20 @@
         mounted: 
             function () {
                 this.$nextTick(function () {
-                    let id1 ='11';
-                    if(this.$route.query.id){
-                        id1=this.$route.query.id;
-                    }
                     
-                    this.$refs.tree.setCurrentKey(id1);
-                    let node1=this.$refs.tree.getCurrentNode();
-                    this.handleNodeClick(node1);
+                    if(/^\/tools\//.test(this.$route.path)){
+
+                    }else if(this.$route.query.id){
+                        let id1=this.$route.query.id;
+                        this.$refs.tree.setCurrentKey(id1);
+                        let node1=this.$refs.tree.getCurrentNode();
+                        this.handleNodeClick(node1);
+                    }else{
+                        let id1 ='11';
+                        this.$refs.tree.setCurrentKey(id1);
+                        let node1=this.$refs.tree.getCurrentNode();
+                        this.handleNodeClick(node1);
+                    }
                 })
                 }
         }

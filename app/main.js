@@ -4,6 +4,7 @@ import './element-variables.scss';
 require('../static/styles/indexStyle.css');
 import introduction from './introduction.vue';
 import VueRouter from 'vue-router';
+import tool from './tool.vue';
 Vue.use(VueRouter);
 
 import hljs from 'highlight.js/lib/highlight';
@@ -12,6 +13,7 @@ hljs.registerLanguage('javascript', javascript);
 
 // import 'highlight.js/styles/github.css';
 import comparticle from './article.vue';
+import todoList from './TodoList.vue';
 
 
 // const User={
@@ -22,9 +24,8 @@ function fetchData1(arg){
     const item = arg.dir;
     const xhr = new XMLHttpRequest();
     
-    xhr.onload = () => {   
-        // console.log(text1); 
-    };
+    // xhr.onload = () => {
+    // };
     xhr.open('get', '/front-note/' + encodeURIComponent(item), false);
     xhr.send(null);
     const text1 = xhr.responseText; 
@@ -42,11 +43,11 @@ const router= new VueRouter({
           component: comparticle,
           props: (route)=>{ const article1=fetchData1(route.query);return {article:article1};},
         },
-        // {
-        //    path: '/todolist',
-        //    name: 'todolist',
-        //    component: todolist,
-        // }
+        {
+           path: '/tools/todoList',
+           name: 'todoList',
+           component: todoList,
+        }
     ]
 });
 
@@ -57,16 +58,29 @@ const outer = new Vue({
     components: {
         tree,
         introduction,
+        tool,
     },
     data: {
         list1: [],
         article: '',
-        dirs: [{ id: 1, name: 'js', dir: 'js笔记' }, { id: 2, name: 'css', dir: 'css笔记' },
-            { id: 3, name: 'html', dir: 'html笔记' }, { id: 4, name: 'Vue', dir: 'Vue笔记' },
-            { id: 5, name: 'reading', dir: '阅读小记' }, { id: 6, name: 'others', dir: '其他' },
+        dirs: [{ 
+            id: 1, name: 'js', dir: '前端笔记' }, 
+            { id: 2, name: 'css', dir: 'css笔记' },
+            { id: 3, name: 'html', dir: 'html笔记' }, 
+            { id: 4, name: 'Vue', dir: 'Vue笔记' },
+            { id: 5, name: 'reading', dir: '阅读小记' },
+            { id: 6, name: 'others', dir: '其他文章' },
+            {id: 8, name:"tools",dir:'实用工具'},
             { id: 7, name: 'about', dir: '关于' }],
+        showDir:[{ 
+            id: 1, name: 'js', dir: '前端笔记' },
+            { id: 5, name: 'reading', dir: '阅读小记' },
+            { id: 6, name: 'others', dir: '其他文章' },
+            {id: 8, name:"tools",dir:'实用工具'},
+            { id: 7, name: 'about', dir: '关于' }
+        ],
         expandedKey: [],
-        isActive: ['open', 'close'],
+        isActive: ['open', 'close','close'],
         sidebarClass: 'sidebar-exit',
         buttonClass: 'button-exit',
         // isRouterAlive: true,
@@ -74,17 +88,19 @@ const outer = new Vue({
     methods: {
         changeList(listType) {
             // this.expandeNode(listType);
-            let list1 = ['js', 'css', 'html', 'Vue', 'reading', 'others', 'about'];
-            let list2 = ['11', '21', '31', '41', '51', '61', '71'];
+            let list1 = ['js', 'css', 'html', 'Vue', 'reading', 'others', 'about','tools'];
+            let list2 = ['11', '21', '31', '41', '51', '61', '71','81'];
             let index = list1.indexOf(listType);
             if(this.expandedKey[0] !== list2[index]){
                 this.expandedKey = [list2[index]];
             }
     
             if (listType === 'about') {
-                this.isActive = ['close', 'open'];
+                this.isActive = ['close', 'open','close'];
+            } else if(listType === 'tools'){
+                this.isActive=['close','close','open'];
             } else {
-                this.isActive = ['open', 'close'];
+                this.isActive = ['open', 'close','close'];
             }
             this.buttonClass = 'button-exit';
             this.sidebarClass = 'sidebar-exit';
@@ -92,24 +108,23 @@ const outer = new Vue({
 
         changeExpand(eventData) {
             this.expandedKey[0] = eventData;
-            console.log('q');
+            // console.log('q');
         },
         changeInner(flag) {
             if (flag === 'dir') {
-                this.isActive = ['open', 'close'];
+                this.isActive = ['open', 'close','close'];
             } else {
-                this.isActive = ['close', 'open'];
+                this.isActive = ['close', 'open','close'];
             }
         },
         fetchData(arg) {
             let id = arg.id;
-            console.log('w');
             let item = arg.dir;
             let ele = this.dirs.filter((el) => { return el.id === id && id <= 9 })[0];
 
             if (ele) {
                 
-                console.log('e');
+                // console.log('e');
                 this.changeList(ele.name);
             }else{
                 if(this.expandedKey[0] !== id){
@@ -126,7 +141,7 @@ const outer = new Vue({
             }
         },
         loadData(arg) {
-            console.log('r');
+            // console.log('r');
             const oldRoute=this.$route.query.id;
             this.$router.push({ path: `/article/${arg[0]}`,query: { id:arg[1],dir:arg[0]} });
             if(oldRoute===arg[1]){
@@ -148,16 +163,26 @@ const outer = new Vue({
 
     watch: {
         //如果路由有变化，会再次执行该方法
-        '$route'(){console.log(this.$route.query);console.log('yyy');this.fetchData(this.$route.query)},
+        '$route'() {
+            // console.log(this.$route);
+            if( !/^\/tools\//.test(this.$route.path) ) {
+                this.fetchData(this.$route.query)
+            }
+        }
       },
 
     created(){
-        console.log('rrr');
+        // console.log('rrr');
         this.initialId=this.$route.query.id;
         let id='11';
         if (this.$route.query.id){
             id=this.$route.query.id;
         }
+        if ( /^\/tools\//.test(this.$route.path) ) {
+            id='81';
+            this.isActive=['close','close','open'];
+        }
+        console.log(id);
         this.expandedKey=[id];
         // this.isRouterAlive = false
         // this.$nextTick(() => (this.isRouterAlive = true))

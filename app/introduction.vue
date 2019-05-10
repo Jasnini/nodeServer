@@ -49,12 +49,13 @@
                     link: 'https://github.com/Jasnini',
                     name: 'github',
                     img: './images/github.svg',
-                },{
-                    link: './todolist',
-                    name: 'todolist',
-                    img: './images/write.svg',
+                },
+                // {
+                //     link: './todoList',
+                //     name: 'todoList',
+                //     img: './images/write.svg',
 
-                }
+                // }
                 ]
 
             }

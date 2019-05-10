@@ -37,17 +37,19 @@ body{
 
 #dhead {
     height: 6rem;
-    background-color: rgba(241, 241, 241, 0.932);
-    background-color:rgb(91, 126, 139);
-    opacity:0.90 ;
-    padding-top: 10px;
+    margin: 0 auto;
+    background-color:rgb(91, 126, 139,0.1);
+    
+    
 }
 
 #dheader2 {
     display:flex;
     height: 100%;
-    width: 70%;
+    width: 75%;
+    background-color:rgb(91, 126, 139, 0.8);
     margin: 0  auto;
+    padding-top: 10px;
 }
 
 #dheader3 {
@@ -85,6 +87,9 @@ body{
     cursor: pointer;
     padding: 3px 3px;
 }
+.js-note:active{
+    color:rgb(233, 115, 115);
+}
 
 
 
@@ -94,6 +99,8 @@ body{
     margin-bottom: 0.5rem;
     
 }
+
+
 #dbody {
     display:flex;
     align-items: center;
@@ -145,6 +152,7 @@ body{
     width: 75%;
     box-sizing: border-box;
     height: 100%;
+    background-color:rgb(255, 255, 255);
 }
 
 #comparticle{
