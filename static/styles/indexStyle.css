@@ -86,8 +86,10 @@ body{
     padding: 3px 3px;
 }
 
-.dir {
-    display: inline-block;
+
+
+.list1 .dir {
+    display: inline-block ;
     margin-right: 1.2rem;
     margin-bottom: 0.5rem;
     
@@ -191,9 +193,10 @@ body{
 }
 
 
-ul li{
+
+/* ul li{
     display:block;
-}
+} */
 
 
 [v-cloak]{
@@ -307,3 +310,4 @@ table,th, td{
 [v-cloak] {
     display: none !important;
 }
+

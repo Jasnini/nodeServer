@@ -102,7 +102,7 @@
 }
 
 ul li{
-  display: list-item !important;
+  display: list-item;
 }
 ul{
   list-style-type: disc ;
