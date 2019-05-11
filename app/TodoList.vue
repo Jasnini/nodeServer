@@ -6,7 +6,7 @@
             </nav>
             <div id="mainout">
             <div id="main">
-                <componnet is='todo-item' 
+                <componnet is='todo-item'
                         v-for="(item) in showThings"
                         v-bind:item="item.content"
                         :key='item.id'
@@ -14,7 +14,7 @@
                         :state=' item.done===0 ? false:true'
                         v-on:del-thing="deletThing(item.id)"
                         v-on:state-change="stateChange(item)"
-                        @input="changeThing(item,$event)"                        
+                        @input="changeThing(item,$event)"
                         >
                 </componnet>
             </div>
@@ -33,144 +33,172 @@
                     <input name='listType' type='radio' id='uncomplete' v-on:click="showWhat('uncomplete')"/>
                     <label for="uncomplete">Undone</label>
                 <!-- </div> -->
-                
+
                 <!-- <button id='all' v-on:click="showWhat('all')">All</button>
                 <button id='complete' v-on:click="showWhat('complete')">Done</button>
                 <button id='uncomplete' v-on:click="showWhat('uncomplete')">Undone</button> -->
                 <button id='dels' :style="{visibility: dis}" v-on:click="clearDone()"> Clear Done </button>
             </nav>
             </div>
-        </div>  
+        </div>
 </template>
 
 <script>
-    import Vue from 'vue';
-    import todoItem from './TodoItem.vue';
+import Vue from 'vue';
+import todoItem from './TodoItem.vue';
 
-    export default({
-        data() {
-            return {
-                thing:'',
-                things:[],//id content done
-                button: 'all',
-                i:0,
-                dis: 'hidden',
-            }
-        },
+export default ({
+  data() {
+    return {
+      'thing': '',
+      'things': [], //id content done
+      'button': 'all',
+      'i': 0,
+      'dis': 'hidden'
+    };
+  },
 
-        components: {
-            todoItem
-        },
+  'components': {
+    todoItem
+  },
 
-        methods: {
-            addThing() {
-                if(this.thing.trim().length!==0){
-                    this.i++;
-                    this.things.push({'id':this.i, 'content':this.thing, 'done':0});
-                    this.thing='';
-                }
-            },
+  'methods': {
+    addThing() {
+      if (this.thing.trim().length!==0) {
+        this.i++;
+        this.things.push({'id': this.i, 'content': this.thing, 'done': 0});
+        this.thing='';
+      }
+    },
 
-            deletThing(id1) {
-                this.things=this.things.filter((el,index1,arr)=>{return el.id!==id1});
-                let temp=this.things.filter(function(el,index1,arr){return el.done===1});
-                if(temp.length!==0){
-                    this.dis='visible';
-                } else{
-                    this.dis='hidden';
-                }   
-            },
+    deletThing(id1) {
+      this.things=this.things.filter((el, index1, arr)=>{
+        return el.id!==id1;
+      });
+      let temp=this.things.filter(function(el, index1, arr) {
+        return el.done===1;
+      });
 
-            stateChange(item1){
-                if(item1.done===0){
-                    let index1=this.things.indexOf(item1);
-                    let id1=item1.id;
-                    let content1=item1.content;
-                    Vue.set(this.things,index1,{'id':id1,'content':content1,'done':1});
-                }else if(item1.done===1){
-                    let index1=this.things.indexOf(item1);
-                    let id1=item1.id;
-                    let content1=item1.content;
-                    Vue.set(this.things,index1,{'id':id1,'content':content1,'done':0});
-                }
-                let temp=this.things.filter(function(el,index1,arr){return  el.done===1});
-                if(temp.length!==0){
-                    this.dis='visible';
-                } else{
-                    this.dis='hidden';
-                }
-            },
-            clearDone(){
-                this.things=this.things.filter(function(el){return el.done!==1});
-                let temp=this.things.filter(function(el,index1,arr){return el.done===1});
-                if(temp.length!==0){
-                    this.dis='visible';
-                } else{
-                    this.dis='hidden';
-                }
-            },
-            showWhat(buttonType){
-                if(buttonType==='all'){
-                    this.button='all';
-                }else if(buttonType==='complete'){
-                    this.button='complete';
-                }else if(buttonType==='uncomplete'){
-                    this.button='uncomplete';
-                }
-            },
-            changeThing(item1,event1){
-                let index=this.things.indexOf(item1);
-                let event2=event1.slice(0,event1.length);
-                // console.log(index);
-                if(event2.length===0){
-                    this.things.splice(index,1);
-                }else{
-                    Vue.set(this.things,index,{'id':item1.id,'content':event2,'done':item1.done});
-                }
-                // console.log(1);
-                // console.log(event1.length);
-                // console.log(event1);
-            },
-        },
-        computed:{
-        //根据不同的选项按钮，展示的不同的数据
-            showThings: function(){
-                if(this.button==='all'){
-                    return this.things;
-                }else if(this.button==='uncomplete'){
-                    let temp=this.things.filter( (el,index1,arr)=>{return el.done===0})
-                    return temp;
-                }else if(this.button==='complete'){
-                    let temp=this.things.filter( (el,index1,arr)=>{return el.done===1})
-                    return temp;
-                }
-            },
-        //  storageList () {
-        //         localStorage.setItem('todoList',this.things);
-        //     }
-        },
-        watch:{
-            things(){
-                window.localStorage.removeItem('todoList');
-                window.localStorage.setItem('todoList',JSON.stringify(this.things));
-            }
-        },
-        created(){
-            let todoList=JSON.parse(window.localStorage.getItem( 'todoList' ));
-            if(todoList){  
-                this.things=todoList;
-                this.i=this.things.length;
-            }
-            const doneThings=this.things.filter( ( el,index1,arr )=>{ return el.done===1 } )
-            console.log(doneThings.length>0);
-            if ( doneThings.length>0 ) {
-                this.dis='visible';
-            }else{
-                this.dis='hidden';
-            }
-        }
+      if (temp.length!==0) {
+        this.dis='visible';
+      } else {
+        this.dis='hidden';
+      }
+    },
 
-    });
+    stateChange(item1) {
+      if (item1.done===0) {
+        let index1=this.things.indexOf(item1),
+          id1=item1.id,
+          content1=item1.content;
+
+        Vue.set(this.things, index1, {'id': id1, 'content': content1, 'done': 1});
+      } else if (item1.done===1) {
+        let index1=this.things.indexOf(item1),
+          id1=item1.id,
+          content1=item1.content;
+
+        Vue.set(this.things, index1, {'id': id1, 'content': content1, 'done': 0});
+      }
+      let temp=this.things.filter(function(el, index1, arr) {
+        return el.done===1;
+      });
+
+      if (temp.length!==0) {
+        this.dis='visible';
+      } else {
+        this.dis='hidden';
+      }
+    },
+    clearDone() {
+      this.things=this.things.filter(function(el) {
+        return el.done!==1;
+      });
+      let temp=this.things.filter(function(el, index1, arr) {
+        return el.done===1;
+      });
+
+      if (temp.length!==0) {
+        this.dis='visible';
+      } else {
+        this.dis='hidden';
+      }
+    },
+    showWhat(buttonType) {
+      if (buttonType==='all') {
+        this.button='all';
+      } else if (buttonType==='complete') {
+        this.button='complete';
+      } else if (buttonType==='uncomplete') {
+        this.button='uncomplete';
+      }
+    },
+    changeThing(item1, event1) {
+      let index=this.things.indexOf(item1),
+        event2=event1.slice(0, event1.length);
+      // console.log(index);
+
+      if (event2.length===0) {
+        this.things.splice(index, 1);
+      } else {
+        Vue.set(this.things, index, {'id': item1.id, 'content': event2, 'done': item1.done});
+      }
+      // console.log(1);
+      // console.log(event1.length);
+      // console.log(event1);
+    }
+  },
+  'computed': {
+    //根据不同的选项按钮，展示的不同的数据
+    'showThings': function() {
+      if (this.button==='all') {
+        return this.things;
+      } else if (this.button==='uncomplete') {
+        let temp=this.things.filter( (el, index1, arr)=>{
+          return el.done===0;
+        });
+
+
+        return temp;
+      } else if (this.button==='complete') {
+        let temp=this.things.filter( (el, index1, arr)=>{
+          return el.done===1;
+        });
+
+
+        return temp;
+      }
+    }
+    //  storageList () {
+    //         localStorage.setItem('todoList',this.things);
+    //     }
+  },
+  'watch': {
+    things() {
+      window.localStorage.removeItem('todoList');
+      window.localStorage.setItem('todoList', JSON.stringify(this.things));
+    }
+  },
+  created() {
+    let todoList=JSON.parse(window.localStorage.getItem( 'todoList' ));
+
+    if (todoList) {
+      this.things=todoList;
+      this.i=this.things.length;
+    }
+    const doneThings=this.things.filter( ( el, index1, arr )=>{
+      return el.done===1;
+    } );
+
+    console.log(doneThings.length>0);
+    if ( doneThings.length>0 ) {
+      this.dis='visible';
+    } else {
+      this.dis='hidden';
+    }
+  }
+
+});
 </script>
 
 <style>
@@ -180,7 +208,7 @@
     font-family: Helvetica;
     }
     body {
-        height:100%; 
+        height:100%;
     }
 
     #title {
@@ -202,7 +230,7 @@
     justify-content: center;
     padding-top: 2rem;
     padding-bottom: 1rem;
-    
+
     }
 
     #mainout {
@@ -240,7 +268,7 @@
         cursor: pointer;
         border-radius: 4px;
         border:0.1rem solid rgb(204, 203, 203);
-        outline: none;   
+        outline: none;
     }
 
     #addbutton:active {
@@ -279,8 +307,8 @@
         padding-right: 0.5rem;
         word-wrap:break-word;
         white-space: nowrap;
-        
-        
+
+
     }
     #del {
         float: right;
@@ -293,7 +321,7 @@
         background: transparent;
         border: none;
         color: rgb(194, 190, 190);
-        /* margin-top: 0rem; 
+        /* margin-top: 0rem;
         padding-top: 0rem; */
         /* padding-bottom: 0.5rem; */
         /* visibility: hidden; */

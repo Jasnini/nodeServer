@@ -8,17 +8,17 @@
 </template>
 
 <script>
-    export default({
-        methods: {
-            activeTool(tool){
-                if(tool==='todoList'){
-                    this.$router.push({path:`/tools/todoList`});
-                }else if(tool==='triangle' ){
-                    this.$router.push({path:`/tools/triangle`});
-                }
-            },  
-        },
-    })
+export default ({
+  'methods': {
+    activeTool(tool) {
+      if (tool==='todoList') {
+        this.$router.push({'path': '/tools/todoList'});
+      } else if (tool==='triangle' ) {
+        this.$router.push({'path': '/tools/triangle'});
+      }
+    }
+  }
+});
 
 </script>
 
@@ -29,11 +29,11 @@
         padding-top: 10px;
     }
     ul{
-        color: rgb(245, 130, 149); 
+      color: rgb(245, 130, 149);
     }
 
     li:active{
-        color: red;
+      color: red;
     }
 
 </style>

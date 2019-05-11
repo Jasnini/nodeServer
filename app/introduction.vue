@@ -1,5 +1,5 @@
 <template>
-    <div> 
+    <div>
         <div>
             <div class="head-container"><img src="@/static/images/head.png"/>
             </div>
@@ -20,56 +20,54 @@
                 </div>
             </div>
             <div>
-                
+
             </div>
         </div>
     </div>
 </template>
 
 
-
 <script>
-    export default{
-        name: 'introduction',
-        data: ()=>{
-            return{
-                site_item_count:[{
-                    type:'分类',
-                    num:'6',
-                },{
-                    type:'日志',
-                    num:'23',
-                }],
-                link_personal_site: [{
-                    link: 'https://weibo.com/2961922651/profile',
-                    name: 'sina',
-                    img: "./images/sina.svg",
-                },
-                {
-                    link: 'https://github.com/Jasnini',
-                    name: 'github',
-                    img: './images/github.svg',
-                },
-                // {
-                //     link: './todoList',
-                //     name: 'todoList',
-                //     img: './images/write.svg',
+export default {
+  'name': 'introduction',
+  'data': ()=>{
+    return {
+      'site_item_count': [{
+        'type': '分类',
+        'num': '6'
+      }, {
+        'type': '日志',
+        'num': '23'
+      }],
+      'link_personal_site': [{
+        'link': 'https://weibo.com/2961922651/profile',
+        'name': 'sina',
+        'img': './images/sina.svg'
+      },
+      {
+        'link': 'https://github.com/Jasnini',
+        'name': 'github',
+        'img': './images/github.svg'
+      }
+        // {
+        //     link: './todoList',
+        //     name: 'todoList',
+        //     img: './images/write.svg',
 
-                // }
-                ]
+        // }
+      ]
 
-            }
-        },
+    };
+  },
 
-        methods:{
-            // openNewWindow(url){
-            //     window.open(url);
-            // }
-        },
+  'methods': {
+    // openNewWindow(url){
+    //     window.open(url);
+    // }
+  }
 
 
-
-    }
+};
 </script>
 <style>
     .head-container{
@@ -93,7 +91,7 @@
         padding: 0.2rem!important;
         border-bottom: 1px solid black!important;
     }
-    
+
     .link-img{
         margin-right: 0.2rem!important;
         height: 1.2rem!important;
