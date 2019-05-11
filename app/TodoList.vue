@@ -162,10 +162,11 @@
                 this.i=this.things.length;
             }
             const doneThings=this.things.filter( ( el,index1,arr )=>{ return el.done===1 } )
+            console.log(doneThings.length>0);
             if ( doneThings.length>0 ) {
                 this.dis='visible';
             }else{
-                this.dis='hiden';
+                this.dis='hidden';
             }
         }
 
@@ -211,21 +212,21 @@
     }
 
     #main {
-        width: 37.4rem;
+        width: 80%;
         /* padding-bottom: 0rem; */
         margin-bottom: 2rem;
         box-shadow: 0.5rem 0.5rem 2rem gray ;
     }
 
     #bottom {
-        padding-left: 33%;
         height: 1.5rem;
         padding-bottom: 1rem;
+        text-align: center;
     }
 
     #addbox {
         display: inline-block;
-        width: 30rem;
+        width: 65%;
         height: 3rem;
         margin-right: 0.3rem;
         font-size: 1.5rem;
@@ -308,6 +309,7 @@
     }
 
     #dels{
+        display:inline-block;
         height: 2rem;
         font-size: 1rem;
         color: rgb(194, 190, 190);
@@ -322,9 +324,6 @@
         color: rgb(122, 32, 103);
     }
 
-    #dels{
-        margin-left: 4rem;
-    }
 
     ::-webkit-input-placeholder {
         font-style: italic;
