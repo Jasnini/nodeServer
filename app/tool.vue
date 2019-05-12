@@ -9,6 +9,7 @@
 
 <script>
 export default ({
+    name: 'Tool',
     methods: {
         activeTool(tool) {
             if (tool === 'todoList') {
