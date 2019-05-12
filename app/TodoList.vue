@@ -269,8 +269,8 @@ export default ({
 
     #mainout {
         display: flex;
-    align-items: center;
-    justify-content: center;
+        align-items: center;
+        justify-content: center;
     }
 
     #main {
@@ -278,6 +278,8 @@ export default ({
         /* padding-bottom: 0rem; */
         margin-bottom: 2rem;
         box-shadow: 0.5rem 0.5rem 2rem gray ;
+        max-height:400px;
+        overflow-y:auto;
     }
 
     #bottom {
@@ -319,7 +321,6 @@ export default ({
         border-bottom: 1px solid rgb(216, 214, 214);
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
-        /* height: 1.8rem; */
     }
     /* #main #container:last-of-type{
         border-bottom:1px solid rgb(216, 214, 214);
@@ -327,14 +328,9 @@ export default ({
 
     #check {
         zoom: 170%;
-        /* margin-top: 0.5rem;  */
         margin-left: 1rem;
-        /* float: left; */
-        /* vertical-align: middle;  */
-        /* left: 1 em; */
     }
     #item {
-        /* display: flex; */
         position: relative;
         display: inline-block;
         width: 100%;

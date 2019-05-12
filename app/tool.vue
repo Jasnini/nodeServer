@@ -2,7 +2,7 @@
   <div id="tool">
     <ul>
       <li><a @click="activeTool('todoList')"> TodoList </a></li>
-      <li><a> Triangle </a></li>
+      <li><a @click="activeTool('triangle')"> Triangle </a></li>
     </ul>
   </div>
 </template>
@@ -13,8 +13,10 @@ export default ({
     methods: {
         activeTool(tool) {
             if (tool === 'todoList') {
+                console.log('ttt');
                 this.$router.push({ path: '/tools/todoList' });
             } else if (tool === 'triangle') {
+                console.log('ppp');
                 this.$router.push({ path: '/tools/triangle' });
             }
         }

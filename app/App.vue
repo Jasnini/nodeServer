@@ -42,8 +42,7 @@
               @click="changeInner('dir')"
             >
               目录
-            </button><!---  --->
-            <button
+            </button><button
               class="label"
               @click="changeInner('about')"
             >
@@ -118,6 +117,7 @@ hljs.registerLanguage('javascript', javascript);
 // import 'highlight.js/styles/github.css';
 import comparticle from './article.vue';
 import todoList from './TodoList.vue';
+import triangle from './Triangle.vue';
 
 const router = new VueRouter({
     // mode: 'history',
@@ -134,6 +134,11 @@ const router = new VueRouter({
             path: '/tools/todoList',
             name: 'todoList',
             component: todoList
+        },
+        {
+            path: '/tools/triangle',
+            name: 'triangle',
+            component: triangle
         }
     ]
 });
