@@ -30,23 +30,37 @@
 
 <script>
 export default {
-    'name': 'todoItem',
+    name: 'TodoItem',
 
-    'props': {
-        'item': String,
-        'classt': String,
-        'state': Boolean
+    directives: {
+        focus: {
+            update(el, { value }) {
+                if (value) {
+                    el.focus();
+                    var range = window.getSelection(); // 创建range
+
+                    range.selectAllChildren(el); // range 选择obj下所有子内容
+                    range.collapseToEnd(); // 光标移至最后
+                }
+            }
+        }
+    },
+
+    props: {
+        item: String,
+        classt: String,
+        state: Boolean
     },
 
     data() {
         return {
-            'content1': '',
-            'editable': false,
-            'focusState': false
+            content1: '',
+            editable: false,
+            focusState: false
         };
     },
 
-    'methods': {
+    methods: {
         blurInput() {
             this.$refs.content1.blur();
             this.editable = false;
@@ -61,20 +75,6 @@ export default {
             this.editable = true;
             // this.$nextTick(()=>{this.$refs.content1.focus();});//nextTick()避免 元素还没有渲染完成进行focus操作会出错！！！
             this.focusState = true;
-        }
-    },
-
-    'directives': {
-        'focus': {
-            update(el, { value }) {
-                if (value) {
-                    el.focus();
-                    var range = window.getSelection(); // 创建range
-
-                    range.selectAllChildren(el); // range 选择obj下所有子内容
-                    range.collapseToEnd(); // 光标移至最后
-                }
-            }
         }
     }
 };

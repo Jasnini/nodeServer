@@ -24,140 +24,122 @@ import './element-variables.scss';
 Vue.use(Tree);
 
 export default {
-    'name': 'tree',
-    'props': ['expandedkey'],
+    name: 'Tree',
+    props: ['expandedkey'],
     data() {
         return {
-            'rePaint': true,
-            'defaultProps': {
-                'children': 'children',
-                'label': 'label'
+            rePaint: true,
+            defaultProps: {
+                children: 'children',
+                label: 'label'
             },
-            'data': [{
-                'id': '1',
-                'label': 'js笔记',
-                'children': [{
-                    'id': '11',
-                    'label': 'js'
+            data: [{
+                id: '1',
+                label: 'js笔记',
+                children: [{
+                    id: '11',
+                    label: 'js'
                 }, {
-                    'id': '12',
-                    'label': 'js原型链'
+                    id: '12',
+                    label: 'js原型链'
                 }, {
-                    'id': '13',
-                    'label': 'this的用法'
+                    id: '13',
+                    label: 'this的用法'
                 }, {
-                    'id': '14',
-                    'label': '事件'
+                    id: '14',
+                    label: '事件'
                 }, {
-                    'id': '15',
-                    'label': 'js块级作用域'
+                    id: '15',
+                    label: 'js块级作用域'
                 }, {
-                    'id': '16',
-                    'label': 'Ajax'
+                    id: '16',
+                    label: 'Ajax'
                 }, {
-                    'id': '17',
-                    'label': 'async await'
+                    id: '17',
+                    label: 'async await'
                 }, {
-                    'id': '18',
-                    'label': 'ES6 箭头函数'
+                    id: '18',
+                    label: 'ES6 箭头函数'
                 }, {
-                    'id': '19',
-                    'label': 'promise'
+                    id: '19',
+                    label: 'promise'
                 }, {
-                    'id': '110',
-                    'label': '内存泄漏'
+                    id: '110',
+                    label: '内存泄漏'
                 }, {
-                    'id': '111',
-                    'label': '正则表达式'
+                    id: '111',
+                    label: '正则表达式'
                 }
                 ]
             },
             {
-                'id': '2',
-                'label': 'css笔记',
-                'children': [{
-                    'id': '21',
-                    'label': 'css'
+                id: '2',
+                label: 'css笔记',
+                children: [{
+                    id: '21',
+                    label: 'css'
                 }, {
-                    'id': '22',
-                    'label': '盒模型'
+                    id: '22',
+                    label: '盒模型'
                 }]
             },
             {
-                'id': '3',
-                'label': 'html笔记',
-                'children': [{
-                    'id': '31',
-                    'label': 'DOM'
+                id: '3',
+                label: 'html笔记',
+                children: [{
+                    id: '31',
+                    label: 'DOM'
                 }]
             },
             {
-                'id': '4',
-                'label': 'Vue笔记',
-                'children': [{
-                    'id': '41',
-                    'label': 'Vue 解决this.$refs.content1.focus();失效的问题'
+                id: '4',
+                label: 'Vue笔记',
+                children: [{
+                    id: '41',
+                    label: 'Vue 解决this.$refs.content1.focus();失效的问题'
                 }, {
-                    'id': '42',
-                    'label': 'Vue.js'
+                    id: '42',
+                    label: 'Vue.js'
                 }, {
-                    'id': '43',
-                    'label': 'VueRouter'
+                    id: '43',
+                    label: 'VueRouter'
                 }]
             },
             {
-                'id': '5',
-                'label': '阅读小记',
-                'children': [{
-                    'id': '51',
-                    'label': 'xxx'
+                id: '5',
+                label: '阅读小记',
+                children: [{
+                    id: '51',
+                    label: 'xxx'
                 }
                 ]
             }, {
-                'id': '6',
-                'label': '其他文章',
-                'children': [{
-                    'id': '61',
-                    'label': 'js前端面试问题汇总'
+                id: '6',
+                label: '其他文章',
+                children: [{
+                    id: '61',
+                    label: 'js前端面试问题汇总'
                 }, {
-                    'id': '62',
-                    'label': 'Https'
+                    id: '62',
+                    label: 'Https'
                 }, {
-                    'id': '63',
-                    'label': 'session cookie token'
+                    id: '63',
+                    label: 'session cookie token'
                 }, {
-                    'id': '64',
-                    'label': 'web性能优化的方法'
+                    id: '64',
+                    label: 'web性能优化的方法'
                 }, {
-                    'id': '65',
-                    'label': 'web缓存'
+                    id: '65',
+                    label: 'web缓存'
                 }, {
-                    'id': '66',
-                    'label': '几种攻击类型'
+                    id: '66',
+                    label: '几种攻击类型'
                 }]
             }
             ]
         };
     },
-    'methods': {
-        handleNodeClick(node1, obj, tree) {
-            // let node=this.$refs.tree.getCurrentNode();
-            const node = node1;
-
-            if (node.id > 9) {
-                this.$emit('loaddata', [node.label, node.id]);
-            } else if (node.id <= 9) {
-                this.$emit('loaddata', [node.children[0].label, node.children[0].id]);
-                this.$refs.tree.setCurrentNode(node.children[0]);
-            }
-        },
-        changeexpand(nodedata, node, tree) {
-            const nodeid = nodedata.id;
-
-            this.$emit('changeexpand', nodeid);
-        }
-    },
-    'watch': {
+    watch: {
         expandedkey(newExpandedkey, oldExpandedkey) {
             // if(newExpandedkey[0]!==oldExpandedkey[0]){
             if (newExpandedkey[0] !== '71' && newExpandedkey[0] !== '81') {
@@ -181,28 +163,45 @@ export default {
             // }
         }
     },
-    'mounted':
-            function() {
-                this.$nextTick(function() {
-                    if (/^\/tools\//.test(this.$route.path)) {
+    mounted() {
+        this.$nextTick(function() {
+            if (/^\/tools\//.test(this.$route.path)) {
 
-                    } else if (this.$route.query.id) {
-                        const id1 = this.$route.query.id;
+            } else if (this.$route.query.id) {
+                const id1 = this.$route.query.id;
 
-                        this.$refs.tree.setCurrentKey(id1);
-                        const node1 = this.$refs.tree.getCurrentNode();
+                this.$refs.tree.setCurrentKey(id1);
+                const node1 = this.$refs.tree.getCurrentNode();
 
-                        this.handleNodeClick(node1);
-                    } else {
-                        const id1 = '11';
+                this.handleNodeClick(node1);
+            } else {
+                const id1 = '11';
 
-                        this.$refs.tree.setCurrentKey(id1);
-                        const node1 = this.$refs.tree.getCurrentNode();
+                this.$refs.tree.setCurrentKey(id1);
+                const node1 = this.$refs.tree.getCurrentNode();
 
-                        this.handleNodeClick(node1);
-                    }
-                });
+                this.handleNodeClick(node1);
             }
+        });
+    },
+    methods: {
+        handleNodeClick(node1, obj, tree) {
+            // let node=this.$refs.tree.getCurrentNode();
+            const node = node1;
+
+            if (node.id > 9) {
+                this.$emit('loaddata', [node.label, node.id]);
+            } else if (node.id <= 9) {
+                this.$emit('loaddata', [node.children[0].label, node.children[0].id]);
+                this.$refs.tree.setCurrentNode(node.children[0]);
+            }
+        },
+        changeexpand(nodedata, node, tree) {
+            const nodeid = nodedata.id;
+
+            this.$emit('changeexpand', nodeid);
+        }
+    }
 };
 
 </script>

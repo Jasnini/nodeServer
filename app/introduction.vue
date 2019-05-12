@@ -41,25 +41,25 @@
 
 <script>
 export default {
-    'name': 'introduction',
-    'data': () => {
+    name: 'Introduction',
+    data: () => {
         return {
-            'site_item_count': [{
-                'type': '分类',
-                'num': '6'
+            site_item_count: [{
+                type: '分类',
+                num: '6'
             }, {
-                'type': '日志',
-                'num': '23'
+                type: '日志',
+                num: '23'
             }],
-            'link_personal_site': [{
-                'link': 'https://weibo.com/2961922651/profile',
-                'name': 'sina',
-                'img': './images/sina.svg'
+            link_personal_site: [{
+                link: 'https://weibo.com/2961922651/profile',
+                name: 'sina',
+                img: './images/sina.svg'
             },
             {
-                'link': 'https://github.com/Jasnini',
-                'name': 'github',
-                'img': './images/github.svg'
+                link: 'https://github.com/Jasnini',
+                name: 'github',
+                img: './images/github.svg'
             }
                 // {
                 //     link: './todoList',
@@ -72,7 +72,7 @@ export default {
         };
     },
 
-    'methods': {
+    methods: {
     // openNewWindow(url){
     //     window.open(url);
     // }

@@ -7,24 +7,24 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     // 环境
-    'mode': 'development',
+    mode: 'development',
     // 唯一入口
-    'entry': {
-        'index': path.resolve(__dirname, 'app/main.js')
+    entry: {
+        index: path.resolve(__dirname, 'app/main.js')
     // todoList: path.resolve(__dirname, 'app/todoList.js')
     },
     // 出口
-    'output': {
+    output: {
     // 打包后文件所在目录
-        'path': path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist'),
         // 文件名
-        'filename': 'js/[name].js'
+        filename: 'js/[name].js'
     },
-    'plugins': [
+    plugins: [
         new HtmlWebpackPlugin({
-            'filename': 'index.html',
-            'template': 'index.html',
-            'inject': true
+            filename: 'index.html',
+            template: 'index.html',
+            inject: true
         }),
         // new HtmlWebpackPlugin({
         //     filename: 'todoList.html',
@@ -38,28 +38,28 @@ module.exports = {
         //     }),
         new OptimizeCSSAssetsPlugin(),
         new MiniCssExtractPlugin({
-            'filename': 'css/[name].css'
+            filename: 'css/[name].css'
         })
     ],
-    'module': {
-        'rules': [
+    module: {
+        rules: [
             {
-                'test': /\.js$/,
-                'exclude': /node_modules/,
-                'use': {
-                    'loader': 'babel-loader'
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
                 }
             },
             {
-                'test': /\.vue$/,
-                'exclude': /node_modules/,
-                'use': {
-                    'loader': 'vue-loader'
+                test: /\.vue$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'vue-loader'
                 }
             },
             {
-                'test': /\.css$/,
-                'use': [
+                test: /\.css$/,
+                use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
@@ -79,30 +79,30 @@ module.exports = {
             //     })
             // },
             {
-                'test': /\.scss$/,
-                'use': ['style-loader', 'css-loader', 'sass-loader']
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
-                'test': /\.(gif|jpg|jpeg|svg)$/,
-                'use': {
-                    'loader': 'url-loader',
-                    'options': {
-                        'limit': 1024,
-                        'name': 'name.[hash:6].[ext]'
+                test: /\.(gif|jpg|jpeg|svg)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 1024,
+                        name: 'name.[hash:6].[ext]'
                     }
                 }
             },
             {
-                'test': /\.(eot|svg|ttf|woff|woff2|png)$/,
-                'use': {
-                    'loader': 'url-loader'
+                test: /\.(eot|svg|ttf|woff|woff2|png)$/,
+                use: {
+                    loader: 'url-loader'
                 }
 
             }
         ]
     },
-    'resolve': {
-        'alias': {
+    resolve: {
+        alias: {
             'vue': 'vue/dist/vue.js',
             '@': path.resolve(__dirname),
             'prettify': './node_modules/showdown-prettify/src/showdown-prettify.js'
@@ -110,6 +110,6 @@ module.exports = {
             // 'dist':path.resolve(__dirname,'./dist')
         },
         // 引入文件可不加后缀
-        'extensions': ['.js', '.vue', '.json']
+        extensions: ['.js', '.vue', '.json']
     }
 };

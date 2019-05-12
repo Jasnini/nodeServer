@@ -10,20 +10,24 @@
 
 <script>
 export default ({
-    'props': { 'articleTitle': Object },
+    props: { articleTitle: Object },
 
-    'data': () => {
+    data: () => {
         return {
-            'article': ''
+            article: ''
         };
     },
 
-    'watch': {
+    watch: {
         articleTitle(newTitle) {
             this.fetchData(newTitle);
         }
     },
-    'methods': {
+
+    mounted() {
+        this.fetchData(this.$route.query);
+    },
+    methods: {
         fetchData(arg) {
             // console.log(arg);
             const item = arg.dir,
@@ -37,10 +41,6 @@ export default ({
             xhr.open('get', '/front-note/' + encodeURIComponent(item), true);
             xhr.send(null);
         }
-    },
-
-    mounted() {
-        this.fetchData(this.$route.query);
     }
 
 });

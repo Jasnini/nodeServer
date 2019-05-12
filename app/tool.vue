@@ -9,12 +9,12 @@
 
 <script>
 export default ({
-    'methods': {
+    methods: {
         activeTool(tool) {
             if (tool === 'todoList') {
-                this.$router.push({ 'path': '/tools/todoList' });
+                this.$router.push({ path: '/tools/todoList' });
             } else if (tool === 'triangle') {
-                this.$router.push({ 'path': '/tools/triangle' });
+                this.$router.push({ path: '/tools/triangle' });
             }
         }
     }

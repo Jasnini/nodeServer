@@ -84,25 +84,72 @@ import Vue from 'vue';
 import todoItem from './TodoItem.vue';
 
 export default ({
-    data() {
-        return {
-            'thing': '',
-            'things': [], // id content done
-            'button': 'all',
-            'i': 0,
-            'dis': 'hidden'
-        };
-    },
 
-    'components': {
+    components: {
         todoItem
     },
+    data() {
+        return {
+            thing: '',
+            things: [], // id content done
+            button: 'all',
+            i: 0,
+            dis: 'hidden'
+        };
+    },
+    computed: {
+    // 根据不同的选项按钮，展示的不同的数据
+        showThings() {
+            if (this.button === 'all') {
+                return this.things;
+            } else if (this.button === 'uncomplete') {
+                const temp = this.things.filter((el, index1, arr) => {
+                    return el.done === 0;
+                });
 
-    'methods': {
+                return temp;
+            } else if (this.button === 'complete') {
+                const temp = this.things.filter((el, index1, arr) => {
+                    return el.done === 1;
+                });
+
+                return temp;
+            }
+        }
+    //  storageList () {
+    //         localStorage.setItem('todoList',this.things);
+    //     }
+    },
+    watch: {
+        things() {
+            window.localStorage.removeItem('todoList');
+            window.localStorage.setItem('todoList', JSON.stringify(this.things));
+        }
+    },
+    created() {
+        const todoList = JSON.parse(window.localStorage.getItem('todoList'));
+
+        if (todoList) {
+            this.things = todoList;
+            this.i = this.things.length;
+        }
+        const doneThings = this.things.filter((el, index1, arr) => {
+            return el.done === 1;
+        });
+
+        console.log(doneThings.length > 0);
+        if (doneThings.length > 0) {
+            this.dis = 'visible';
+        } else {
+            this.dis = 'hidden';
+        }
+    },
+
+    methods: {
         addThing() {
             if (this.thing.trim().length !== 0) {
                 this.i++;
-                this.things.push({ 'id': this.i, 'content': this.thing, 'done': 0 });
+                this.things.push({ id: this.i, content: this.thing, done: 0 });
                 this.thing = '';
             }
         },
@@ -128,13 +175,13 @@ export default ({
                     id1 = item1.id,
                     content1 = item1.content;
 
-                Vue.set(this.things, index1, { 'id': id1, 'content': content1, 'done': 1 });
+                Vue.set(this.things, index1, { id: id1, content: content1, done: 1 });
             } else if (item1.done === 1) {
                 const index1 = this.things.indexOf(item1),
                     id1 = item1.id,
                     content1 = item1.content;
 
-                Vue.set(this.things, index1, { 'id': id1, 'content': content1, 'done': 0 });
+                Vue.set(this.things, index1, { id: id1, content: content1, done: 0 });
             }
             const temp = this.things.filter(function(el, index1, arr) {
                 return el.done === 1;
@@ -177,58 +224,11 @@ export default ({
             if (event2.length === 0) {
                 this.things.splice(index, 1);
             } else {
-                Vue.set(this.things, index, { 'id': item1.id, 'content': event2, 'done': item1.done });
+                Vue.set(this.things, index, { id: item1.id, content: event2, done: item1.done });
             }
             // console.log(1);
             // console.log(event1.length);
             // console.log(event1);
-        }
-    },
-    'computed': {
-    // 根据不同的选项按钮，展示的不同的数据
-        'showThings': function() {
-            if (this.button === 'all') {
-                return this.things;
-            } else if (this.button === 'uncomplete') {
-                const temp = this.things.filter((el, index1, arr) => {
-                    return el.done === 0;
-                });
-
-                return temp;
-            } else if (this.button === 'complete') {
-                const temp = this.things.filter((el, index1, arr) => {
-                    return el.done === 1;
-                });
-
-                return temp;
-            }
-        }
-    //  storageList () {
-    //         localStorage.setItem('todoList',this.things);
-    //     }
-    },
-    'watch': {
-        things() {
-            window.localStorage.removeItem('todoList');
-            window.localStorage.setItem('todoList', JSON.stringify(this.things));
-        }
-    },
-    created() {
-        const todoList = JSON.parse(window.localStorage.getItem('todoList'));
-
-        if (todoList) {
-            this.things = todoList;
-            this.i = this.things.length;
-        }
-        const doneThings = this.things.filter((el, index1, arr) => {
-            return el.done === 1;
-        });
-
-        console.log(doneThings.length > 0);
-        if (doneThings.length > 0) {
-            this.dis = 'visible';
-        } else {
-            this.dis = 'hidden';
         }
     }
 

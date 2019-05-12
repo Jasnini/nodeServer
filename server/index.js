@@ -33,10 +33,10 @@ server.get(
 
                 // let converter = new showdown.Converter();
                 const converter = new showdown.Converter({
-                    'tasklists': false,
-                    'ghCodeBlocks': true,
-                    'tables': true,
-                    'extensions': [showdownHighlight]
+                    tasklists: false,
+                    ghCodeBlocks: true,
+                    tables: true,
+                    extensions: [showdownHighlight]
                 });
                 const html = converter.makeHtml(data);
 
