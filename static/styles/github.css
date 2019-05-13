@@ -107,3 +107,8 @@ ul li{
 ul{
   list-style-type: disc ;
 }
+
+p code,li code{
+    background-color: rgb(168, 212, 198);
+    color: black;
+}

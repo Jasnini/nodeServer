@@ -110,11 +110,11 @@ import VueRouter from 'vue-router';
 import tool from './tool.vue';
 Vue.use(VueRouter);
 
-import hljs from 'highlight.js/lib/highlight';
-import javascript from 'highlight.js/lib/languages/javascript';
-hljs.registerLanguage('javascript', javascript);
+// import hljs from 'highlight.js/lib/highlight';
+// import javascript from 'highlight.js/lib/languages/javascript';
+// hljs.registerLanguage('javascript', javascript);
 
-// import 'highlight.js/styles/github.css';
+// import '../static/styles/github.css';
 import comparticle from './article.vue';
 import todoList from './TodoList.vue';
 import triangle from './Triangle.vue';
@@ -307,6 +307,9 @@ body{
     #dbody2{
         width: 100% !important;
     }
+    .sidebar-exit{
+        /* min-width:127px; */
+    }
 
 }
 
@@ -388,7 +391,6 @@ body{
 }
 
 #list2,.innner {
-
     height: 100%;
     margin-top: 0%;
     padding-top: 0px;
@@ -459,14 +461,13 @@ body{
 [v-cloak]{
     display: none;
 }
-
-#comparticle p,code{
+#comparticle p,pre code{
     word-wrap:break-word !important;
-    width: 100% !important;
+    width: 100% ;
+    margin-right: 1px;
     word-break:break-all !important;
 
 }
-
 #section{
     max-width: 100% !important;
     overflow:auto;
@@ -475,13 +476,14 @@ body{
 
 .close{
     width: 0;
-    transition: 0.3s;
-    display: none;
+    visibility: hidden;
+    height:0;
 }
 .open{
     width: 100%;
-    transition: 0.3s;
-    display: block;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+    visibility: visible;
 }
 
 .label {
@@ -507,9 +509,9 @@ body{
 }
 
 .sidebar-hidden{
-    width: 0 !important;
+    visibility: hidden !important;
     flex: 0.001 !important;
-    transition:0.3s;
+    transition:0.5s;
 }
 .button-exit{
     position:fixed;
@@ -531,7 +533,7 @@ body{
     font-size:0.8rem;
     color:white;
     background-color: rgb(64, 74, 78);
-    transition:0.3s;
+    transition:0.5s;
     outline:none;
 }
 
