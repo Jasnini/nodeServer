@@ -124,6 +124,7 @@ export default ({
         things() {
             window.localStorage.removeItem('todoList');
             window.localStorage.setItem('todoList', JSON.stringify(this.things));
+            window.localStorage.setItem('key', this.i);
         }
     },
     created() {
@@ -131,7 +132,7 @@ export default ({
 
         if (todoList) {
             this.things = todoList;
-            this.i = this.things.length;
+            this.i = parseInt(window.localStorage.getItem('key'));
         }
         const doneThings = this.things.filter((el, index1, arr) => {
             return el.done === 1;
@@ -317,7 +318,7 @@ export default ({
     }
 
     #container {
-        display: flex;
+        display: flex ;
         border-bottom: 1px solid rgb(216, 214, 214);
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
@@ -327,6 +328,7 @@ export default ({
     } */
 
     #check {
+        margin-top: 3px;
         zoom: 170%;
         margin-left: 1rem;
     }
@@ -343,17 +345,13 @@ export default ({
         float: right;
         position: absolute;
         right: 0.4rem;
-        bottom: 0rem;
+        bottom: -0.1rem;
         /* flex: 1; */
         display: none;
         font-size: 1.5rem;
         background: transparent;
         border: none;
         color: rgb(194, 190, 190);
-        /* margin-top: 0rem;
-        padding-top: 0rem; */
-        /* padding-bottom: 0.5rem; */
-        /* visibility: hidden; */
         outline: none;
     }
 
