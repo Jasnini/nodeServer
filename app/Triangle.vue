@@ -186,7 +186,6 @@ export default({
 <style scoped>
 	h1{
 		color:rgb(247, 125, 145);
-		font-size:2rem;
 	}
 	.tri-container{
 		margin: 50px 20px !important;
