@@ -8,7 +8,7 @@
       id="tri-info"
       class="form-inline"
     >
-      a <input
+      a: <input
         id="a"
         v-model="len[0]"
         class="form-control"
@@ -16,7 +16,7 @@
         placeholder="请输入边长a的值"
         required
       >
-      b <input
+      b: <input
         id="b"
         v-model="len[1]"
         class="form-control"
@@ -24,7 +24,7 @@
         placeholder="请输入边长b的值"
         required
       >
-      c <input
+      c: <input
         id="c"
         v-model="len[2]"
         class="form-control"
@@ -53,12 +53,14 @@
 
     <div class="triangle-answer">
       <div
-        id="tri-result">
-        <strong>{{ jg }}</strong>
+        id="tri-result"
+>
+        <strong>{{ message }}</strong>
       </div>
       <canvas
         id="tri-canvas"
-        width="150"
+        width="250px"
+        height="200px"
       />
     </div>
   </div>
@@ -71,47 +73,53 @@ export default({
     data() {
         return {
             len: ['', '', ''],
-            jg: ''
+            message: ''
         };
     },
     methods: {
-        triangleType(l11, l21, l31) {
-            const l1 = parseInt(l11);
-            const l2 = parseInt(l21);
-            const l3 = parseInt(l31);
-            if (this.checkLen(l1, l2, l3) === false) {
+        triangleType(len1, len2, len3) {
+            const a = parseInt(len1);
+            const b = parseInt(len2);
+            const c = parseInt(len3);
+            if (this.checkLen(a, b, c) === false) {
                 return -1;
             }
-            const arr = [l1, l2, l3].sort();
-            if (arr[0] + arr[1] <= arr[2]) {
-                this.jg = `${l1},${l2},${l3}不能构成三角形`;
+            const arr = [a, b, c];
+            arr.sort((param1, param2) => param1 - param2);
+            const l1 = arr[0];
+            const l2 = arr[1];
+            const l3 = arr[2];
+            console.log(arr);
+            if (l1 + l2 <= l3) {
+                console.log('不能');
+                this.message = `${len1},${len2},${len3}不能构成三角形`;
                 this.paintATriangle(l1, l2, l3, 1);
                 return -1;
             }
             let m = '';
             if (l1 * l1 + l2 * l2 > l3 * l3) {
                 if (l1 === l2 && l2 === l3) {
-                    m = `${l1},${l2},${l3}能构成等边三角形`;
+                    m = `${len1},${len2},${len3}能构成等边三角形`;
                 } else if (l1 === l2 || l2 === l3) {
-                    m = `${l1},${l2},${l3}能构成锐角等腰三角形`;
+                    m = `${len1},${len2},${len3}能构成锐角等腰三角形`;
                 }
             }
             if (l1 * l1 + l2 * l2 > l3 * l3 && l1 !== l2) {
-                m = `${l1},${l2},${l3}能构成锐角三角形`;
+                m = `${len1},${len2},${len3}能构成锐角三角形`;
             }
             if (l1 * l1 + l2 * l2 < l3 * l3 && l1 === l2) {
-                m = `${l1},${l2},${l3}能构成等腰钝角三角形`;
+                m = `${len1},${len2},${len3}能构成等腰钝角三角形`;
             }
             if (l1 * l1 + l2 * l2 < l3 * l3 && l1 !== l2) {
-                m = `${l1},${l2},${l3}能构成钝角三角形`;
+                m = `${len1},${len2},${len3}能构成钝角三角形`;
             }
             if (l1 * l1 + l2 * l2 === l3 * l3 && l1 === l2) {
-                m = `${l1},${l2},${l3}能构成等腰直角三角形`;
+                m = `${len1},${len2},${len3}能构成等腰直角三角形`;
             }
             if (l1 * l1 + l2 * l2 === l3 * l3 && l1 !== l2) {
-                m = `${l1},${l2},${l3}能构成直角三角形`;
+                m = `${len1},${len2},${len3}能构成直角三角形`;
             }
-            this.jg = m;
+            this.message = m;
             this.paintATriangle(l1, l2, l3, 0);
         },
         checkLen(a, b, c) {
@@ -123,7 +131,7 @@ export default({
                     Math.floor(c) === c) {
                 return true;
             } else {
-                this.jg = '';
+                this.message = '';
                 alert('输入有误，请重新输入1~100的整数');
                 // debugger;
                 return false;
@@ -142,34 +150,36 @@ export default({
                 ctx.clearRect(0, 0, bg.width, bg.height);
                 return -1;
             }
-            const coefficient = Math.pow((a + b + c) / 150, 0.9);
-            const a_ct = a / coefficient;
-            const b_ct = b / coefficient;
-            const c_ct = c / coefficient;
+
+            const renderC = 150;
+            const renderA = a / c * renderC;
+            const renderB = b / c * renderC;
 
             const bg = document.getElementById('tri-canvas');
             const ctx = bg.getContext('2d');
             ctx.clearRect(0, 0, bg.width, bg.height);
             ctx.beginPath();
             // 绘制三角形
-            const x = (a_ct * a_ct + c_ct * c_ct - b_ct * b_ct) / (2 * a_ct);
-            const y = Math.sqrt(c_ct * c_ct - x * x);
-            ctx.moveTo(50, 50);
-            ctx.lineTo(a_ct + 50, 50);
-            ctx.lineTo(x + 50, y + 50);
+            const x = (renderA * renderA + renderC * renderC - renderB * renderB) / (2 * renderA);
+            const y = Math.sqrt(renderC * renderC - x * x);
+            const initX = 50;
+            const initY = 30;
+            ctx.moveTo(initX, initY);
+            ctx.lineTo(renderA + initX, initY);
+            ctx.lineTo(x + initX, y + initY);
             ctx.closePath();
             ctx.strokeStyle = '#000000'; // 以纯黑色描边
             ctx.stroke(); // 闭合形状并且以描边方式绘制出来
 
             // 绘制边长
-            const a_x = a_ct / 2 + 50;
-            const a_y = 30;
-            const b_x = x / 2 + 100;
-            const b_y = y / 2 + 50;
-            const c_x = (a_ct + x) / 2;
-            const c_y = y / 2 + 50;
+            const a_x = renderA / 2 + initX;
+            const a_y = initY - 15;
+            const c_x = x / 2 + initX - 30;
+            const c_y = y / 2 + initY;
+            const b_x = (renderA + x) / 2 + initX + 30;
+            const b_y = y / 2 + initY;
 
-            ctx.fillStyle = '#000'; // 以纯黑色描边
+            ctx.fillStyle = '#f77d91'; // 以红色描边
             ctx.font = '12px Arial';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
@@ -196,7 +206,7 @@ export default({
 		margin: 50px 0px !important;
 	}
 	.form-control{
-		margin: 0 8px 0 2px;
+		margin: 0 8px;
 	}
 	.form-control::-webkit-input-placeholder{
 		font-size: 0.8rem !important;
@@ -212,12 +222,11 @@ export default({
 		margin: 30px 20px 0 0;
 	}
     .triangle-answer {
-		display: flex ;
+		display: flex;
         border: 1px solid #888888;
         margin: 20px 0;
-        padding: 30px 5px;
+        padding: 20px 10px;
         width: 95%;
-        height: 200px;
     }
 	#tri-result{
 		width: 400px;
