@@ -221,15 +221,21 @@ export default({
 	.btn-primary{
 		margin: 30px 20px 0 0;
 	}
-    .triangle-answer {
-		display: flex;
-        border: 1px solid #888888;
-        margin: 20px 0;
-        padding: 20px 10px;
-        width: 95%;
-    }
+  .triangle-answer {
+  display: flex;
+      border: 1px solid #888888;
+      margin: 20px 0;
+      padding: 20px 10px;
+      width: 95%;
+  }
 	#tri-result{
 		width: 400px;
 		padding: 0 10px;
 	}
+
+  @media screen and (max-width:600px){
+    .triangle-answer {
+      border-color:transparent;
+    }
+  }
 </style>

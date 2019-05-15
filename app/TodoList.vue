@@ -237,20 +237,9 @@ export default ({
 </script>
 
 <style>
-    html {
-    height:100%;
-    font-size: 16px;
-    font-family: Helvetica;
-    }
-    body {
-        height:100%;
-    }
 
     #title {
-        /* width: 1rem; */
-        /* height: 2rem; */
         padding-top:2rem ;
-        /* padding-left:40%; */
         margin: 0 0;
         font-size: 3.5rem;
         text-align: center;
@@ -296,6 +285,12 @@ export default ({
         margin-right: 0.3rem;
         font-size: 1.5rem;
         padding-left: 1rem;
+    }
+
+    @media screen and (max-width: 700px){
+        #addbox{
+            margin-left: 0.5rem;
+        }
     }
 
     #addbutton {

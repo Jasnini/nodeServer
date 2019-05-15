@@ -206,24 +206,30 @@ export default {
 
 </script>
 
-<style >
+<style lang="less">
+#tree {
     .el-tree{
-        background-color: rgb(238, 237, 237) !important;
+        background-color: rgb(238, 237, 237);
 
     }
 
     .el-tree-node__label{
-        font-size: 1.1rem !important;
-        color: black!important;
+        font-size: 1.1rem;
+        color: black;
+        padding-right: 5px;
     }
     .el-tree-node__children  .el-tree-node__label{
-        font-size: 0.93rem !important;
-        color: gray !important;
+        font-size: 0.93rem;
+        color: gray;
     }
 
     .el-tree-node__content {
-        height: 3rem!important;
-        padding-left: 5px !important;
+        height: 3rem;
+        padding-left: 5px ;
+        overflow:scroll;
   }
-
+}
+#tree{
+    padding-bottom: 30px;
+}
 </style>

@@ -9,7 +9,9 @@
 ```javascript
 function A(){};
 let b= new A();
-console.log(b.constructor) // success，间接访问b的原型的constructor
+console.log(b.constructor)
+// success，
+//间接访问b的原型的constructor
 
 ```
 

@@ -289,30 +289,6 @@ body{
 
 }
 
-@media screen and (max-width: 700px){
-    html,.js-note{
-        font-size: 12px!important;
-    }
-    #comparticle{
-        font-size: 10px!important;
-    }
-
-    #list2{
-        flex:1.5;
-    }
-
-    #dheader2{
-        width: 100% !important;
-    }
-    #dbody2{
-        width: 100% !important;
-    }
-    .sidebar-exit{
-        /* min-width:127px; */
-    }
-
-}
-
 #dhead {
     height: 6rem;
     margin: 0 auto;
@@ -382,7 +358,9 @@ body{
     height: 100%;
 }
 #dbody2{
+    display: -webkit-flex;
     display: flex;
+    /* flex-wrap: wrap; */
     height: 700px;
     width:75%;
     margin: 2px 0 2px 0;
@@ -399,10 +377,6 @@ body{
 
 }
 
-#list2{
-    flex:1;
-}
-
 .list2 {
 
     display: block;
@@ -414,11 +388,11 @@ body{
 }
 
 #content {
-    flex: 3;
-    width: 75%;
+    flex-grow:1 ;
     box-sizing: border-box;
     height: 100%;
     background-color:rgb(255, 255, 255);
+    overflow-x:scroll;
 }
 
 #comparticle{
@@ -426,7 +400,7 @@ body{
     box-sizing : border-box;
     height:100%;
     overflow-y:auto;
-    padding: 5% 7% 7% 7%;
+    padding: 2rem 2rem;
     background-color: white;
     font-size:1rem;
     line-height: 1.7rem;
@@ -461,16 +435,9 @@ body{
 [v-cloak]{
     display: none;
 }
-#comparticle p,pre code{
-    word-wrap:break-word !important;
-    width: 100% ;
-    margin-right: 1px;
-    word-break:break-all !important;
-
-}
 #section{
     max-width: 100% !important;
-    overflow:auto;
+    /* overflow:auto; */
 
 }
 
@@ -504,8 +471,10 @@ body{
 }
 
 .sidebar-exit{
-    width: 100%;
+    visibility: visible;
     transition:0.3s;
+    flex-shrink:0;
+    flex-basis: 25%;
 }
 
 .sidebar-hidden{
@@ -566,6 +535,32 @@ table,th, td{
 }
 [v-cloak] {
     display: none !important;
+}
+
+@media screen and (max-width: 700px){
+    html,.js-note{
+        font-size: 12px!important;
+    }
+    #comparticle{
+        font-size: 12px!important;
+    }
+
+    .sidebar-exit{
+        flex-basis: 40%;
+    }
+
+    #content{
+        flex-grow: 1;
+        overflow:hidden;
+    }
+
+    #dheader2{
+        width: 100% !important;
+    }
+    #dbody2{
+        width: 100% !important;
+    }
+
 }
 
 </style>

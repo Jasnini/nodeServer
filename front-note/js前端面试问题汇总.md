@@ -27,7 +27,8 @@
     - 视口viwport
 
     ```javascript
-    <meta name="viewport" content="width=device-width,initial-sacle=0.5">
+    <meta name="viewport" content=
+    "width=device-width,initial-sacle=0.5">
     ```
 
     - svg：

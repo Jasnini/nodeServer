@@ -80,53 +80,53 @@ export default {
 
 };
 </script>
-<style>
+<style scoped>
     .head-container{
-        text-align: center!important;
-        margin-top: 1rem!important;
-        margin-bottom: 1rem!important;
+        text-align: center ;
+        margin-top: 1rem ;
+        margin-bottom: 1rem ;
     }
     img{
-        height:6rem!important;
-        width: 6rem!important;
+        height:6rem ;
+        width: 6rem ;
     }
     .link{
-        display:flex!important;
-        align-items: center!important;
-        margin: 0.4rem 0.4rem!important;
-        height: 1rem!important;
-        /*line-height: 1.5rem;*/
-        color: black!important;
-        font-size: 0.9rem!important;
-        text-decoration: none!important;
-        padding: 0.2rem!important;
-        border-bottom: 1px solid black!important;
+        display:flex ;
+        align-items: center ;
+        margin: 1rem 0.4rem ;
+        /* height: 1rem ; */
+        line-height: 1.5rem;
+        color: black ;
+        font-size: 0.9rem ;
+        text-decoration: none ;
+        padding: 0.2rem ;
+        border-bottom: 1px solid black ;
     }
 
     .link-img{
-        margin-right: 0.2rem!important;
-        height: 1.2rem!important;
-        width: 1.2rem!important;
+        margin-right: 0.2rem ;
+        height: 1.2rem ;
+        width: 1.2rem ;
 
     }
     .link-container{
-        display: flex!important;
-         align-items: center!important;
-         justify-content: center!important;
-        text-align: center!important;
-        height: 2rem!important;
+        display: flex ;
+         align-items: center ;
+         justify-content: center ;
+        text-align: center ;
+        height: 2rem ;
         padding: 0.5rem;
     }
     @media screen and (max-width: 1200px){
         .link-container{
-            display: inline-block!important;
+            display: inline-block ;
         }
         #pp{
             display: flex;
             justify-content: center;
         }
         .link{
-           font-size: 1rem!important;
+           font-size: 1rem ;
 
         }
     }

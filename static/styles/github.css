@@ -1,7 +1,7 @@
 
 .hljs {
   display: block;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   padding: 0.5em;
   color: #333;
   background: #f8f8f8;
@@ -101,14 +101,24 @@
   font-size: 16px;
 }
 
-ul li{
+/* ul li{
   display: list-item;
 }
 ul{
   list-style-type: disc ;
-}
+} */
 
 p code,li code{
     background-color: rgb(168, 212, 198);
     color: black;
+}
+pre{
+      background: #f8f8f8;
+}
+#comparticle p,pre code,code{
+    word-wrap:break-word !important;
+    word-break:break-all !important;
+    width: 100% ;
+    margin-right: 1px;
+    overflow: scroll !important;
 }
