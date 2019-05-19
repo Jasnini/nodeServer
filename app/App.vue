@@ -279,9 +279,9 @@ export default ({
 @charset "utf-8";
 
 body{
-    font-size: 18px;
+    /* font-size: 18px; */
     width:100%;
-    font-size:18px;
+    /* font-size:18px; */
 }
 #outer{
     margin:0 0 0 0;
@@ -456,7 +456,7 @@ body{
 .label {
     display: inline-block;
     font-size: 1rem;
-    width: 3rem;
+    /* width: 3rem; */
     cursor: pointer;
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -535,12 +535,12 @@ table,th,td{
 }
 
 @media screen and (max-width: 700px){
-    html,.js-note{
+    /* html,.js-note{
         font-size: 12px;
-    }
-    #comparticle{
+    } */
+    /* #comparticle{
         font-size: 12px;
-    }
+    } */
 
     .sidebar-exit{
         flex-basis: 40%;
