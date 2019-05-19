@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --watch",
-    "dev": "nodemon server/index.js --watch"
+    "build": "webpack",
+    "dev": "nodemon server/index.js --watch",
+    "buildDev": "webpack --watch",
+    "prd": "pm2 start server/index.js -n blog",
+    "restart": "pm2 restart blog"
   },
   "author": "",
   "license": "ISC",
@@ -44,6 +47,7 @@
     "node-sass": "^4.11.0",
     "npm": "^6.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "pm2": "^3.5.0",
     "sass-loader": "^7.1.0",
     "showdown-prettify": "^1.3.0",
     "style-loader": "^0.23.1",
