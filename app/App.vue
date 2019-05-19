@@ -275,7 +275,7 @@ export default ({
 
 </script>
 
-<style scoped>
+<style >
 @charset "utf-8";
 
 body{
@@ -436,7 +436,7 @@ body{
     display: none;
 }
 #section{
-    max-width: 100% !important;
+    max-width: 100% ;
     /* overflow:auto; */
 
 }
@@ -467,7 +467,7 @@ body{
 
 .label:focus{
     background-color: rgb(119, 162, 241);
-    outline: none !important;
+    outline: none ;
 }
 
 .sidebar-exit{
@@ -478,13 +478,13 @@ body{
 }
 
 .sidebar-hidden{
-    visibility: hidden !important;
-    flex: 0.001 !important;
+    visibility: hidden ;
+    flex: 0.001 ;
     transition:0.5s;
 }
 .button-exit{
     position:fixed;
-    margin-left:-3rem !important;
+    margin-left:-3rem ;
     bottom: 1rem;
     /* z-index:9999 !important; */
     font-size:0.8rem;
@@ -496,7 +496,7 @@ body{
 }
 .button-hidden{
     position:fixed;
-    margin-left:1rem !important;
+    margin-left:1rem ;
     bottom: 1rem;
     /* z-index:9999 !important; */
     font-size:0.8rem;
@@ -517,12 +517,9 @@ body{
     padding-right: 5px;
 }
 
-table{
-  border-collapse:collapse;
-}
-
-table,th, td{
-  border: 1px solid black;
+table,th,td{
+    border-collapse: collapse;
+    border: solid 1px black;
 }
 
 .cache-img-container {
@@ -534,15 +531,15 @@ table,th, td{
     height: 528px;
 }
 [v-cloak] {
-    display: none !important;
+    display: none ;
 }
 
 @media screen and (max-width: 700px){
     html,.js-note{
-        font-size: 12px!important;
+        font-size: 12px;
     }
     #comparticle{
-        font-size: 12px!important;
+        font-size: 12px;
     }
 
     .sidebar-exit{
@@ -555,10 +552,14 @@ table,th, td{
     }
 
     #dheader2{
-        width: 100% !important;
+        width: 100% ;
     }
     #dbody2{
-        width: 100% !important;
+        width: 100% ;
+    }
+    .cache-img{
+        width: 200px;
+        height:  220px;
     }
 
 }

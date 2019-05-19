@@ -299,7 +299,7 @@ table{
   border-collapse:collapse;
 }
 
-table,th, td{
+table,table th,table td{
   border: 1px solid black;
 }
 

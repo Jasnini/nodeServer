@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
     "dev": "nodemon server/index.js --watch",
     "buildDev": "webpack --watch",
+    "build": "webpack",
     "prd": "pm2 start server/index.js -n blog",
     "restart": "pm2 restart blog"
   },

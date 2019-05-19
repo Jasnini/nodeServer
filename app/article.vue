@@ -46,6 +46,9 @@ export default ({
 });
 </script>
 
-<style scoped>
-
+<style >
+    /* table,th,td{
+        border-collapse:collapse ;
+        border: solid 1px black ;
+    } */
 </style>
