@@ -110,7 +110,11 @@ export default {
                 label: '阅读小记',
                 children: [{
                     id: '51',
-                    label: 'xxx'
+                    label: '程序员的45个好习惯'
+                },
+                {
+                    id: '52',
+                    label: '决策与判断'
                 }
                 ]
             }, {
