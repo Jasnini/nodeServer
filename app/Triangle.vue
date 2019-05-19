@@ -4,34 +4,38 @@
     class="tri-container"
   >
     <h1>三角形类型判断</h1>
-    <form
-      id="tri-info"
-      class="form-inline"
-    >
-      a: <input
-        id="a"
-        v-model="len[0]"
-        class="form-control"
-        type="number"
-        placeholder="请输入边长a的值"
-        required
+    <div>
+      <form
+        id="tri-info"
+        class="form-inline"
       >
-      b: <input
-        id="b"
-        v-model="len[1]"
-        class="form-control"
-        type="number"
-        placeholder="请输入边长b的值"
-        required
-      >
-      c: <input
-        id="c"
-        v-model="len[2]"
-        class="form-control"
-        type="number"
-        placeholder="请输入边长c的值"
-        required
-      ><br>
+        a: <input
+          id="a"
+          v-model="len[0]"
+          class="form-control"
+          type="number"
+          placeholder="请输入边长a的值"
+          required
+        >
+        b: <input
+          id="b"
+          v-model="len[1]"
+          class="form-control"
+          type="number"
+          placeholder="请输入边长b的值"
+          required
+        >
+        c: <input
+          id="c"
+          v-model="len[2]"
+          class="form-control"
+          type="number"
+          placeholder="请输入边长c的值"
+          required
+        ><br>
+      </form>
+    </div>
+    <div>
       <button
         id="rand-tri"
         class="btn btn-primary"
@@ -40,21 +44,19 @@
       >
         随机生成
       </button>
-      <div class="judge-triangle">
-        <button
-          id="submit-form"
-          class="btn btn-primary"
-          @click="triangleType(len[0],len[1],len[2])"
-        >
-          检测结果
-        </button><br>
-      </div>
-    </form>
+      <button
+        id="submit-form"
+        class="btn btn-primary"
+        @click="triangleType(len[0],len[1],len[2])"
+      >
+        检测结果
+      </button><br>
+    </div>
 
     <div class="triangle-answer">
       <div
         id="tri-result"
->
+      >
         <strong>{{ message }}</strong>
       </div>
       <canvas
@@ -198,24 +200,24 @@ export default({
 		color:rgb(247, 125, 145);
 	}
 	.tri-container{
-		margin: 50px 20px !important;
+		margin: 50px 20px ;
 		max-height:650px;
 		overflow-y:auto;
 	}
 	#tri-info{
-		margin: 50px 0px !important;
+		margin: 20px 0px;
 	}
 	.form-control{
 		margin: 0 8px;
 	}
 	.form-control::-webkit-input-placeholder{
-		font-size: 0.8rem !important;
+		font-size: 0.8rem ;
 	}
 	.form-control::-moz-input-placeholder{
-		font-size: 0.8rem !important;
+		font-size: 0.8rem ;
 	}
 	.form-control::-ms-input-placeholder{
-		font-size: 0.8rem !important;
+		font-size: 0.8rem ;
 	}
 
 	.btn-primary{
