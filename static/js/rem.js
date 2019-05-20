@@ -3,7 +3,7 @@
         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
         recalc = function() {
             // 基准大小
-            var baseSize = 18;
+            var baseSize = 16;
             var clientWidth = docEl.clientWidth;
             if (clientWidth === undefined) return;
             // 当前页面宽度相对于375宽的缩放比例，可根据自己需要修改。
