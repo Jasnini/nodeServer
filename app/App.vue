@@ -277,7 +277,9 @@ export default ({
 
 <style >
 @charset "utf-8";
-
+body,#outline{
+    height: 700px;
+}
 body{
     /* font-size: 18px; */
     width:100%;
@@ -355,13 +357,13 @@ body{
     display:flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 800px;
 }
 #dbody2{
     display: -webkit-flex;
     display: flex;
     /* flex-wrap: wrap; */
-    height: 700px;
+    height: 800px;
     width:75%;
     margin: 2px 0 2px 0;
     opacity:0.95 ;
@@ -485,7 +487,7 @@ body{
 .button-exit{
     position:fixed;
     margin-left:-3rem ;
-    bottom: 1rem;
+    bottom: 20px;
     /* z-index:9999 !important; */
     font-size:0.8rem;
     color:white;
@@ -535,13 +537,12 @@ table,th,td{
 }
 
 @media screen and (max-width: 700px){
-    /* html,.js-note{
-        font-size: 12px;
-    } */
-    /* #comparticle{
-        font-size: 12px;
-    } */
-
+    html{
+        font-size: 13px;
+    }
+    #dbody,#dbody2{
+        height:1300px !important;
+    }
     .sidebar-exit{
         flex-basis: 40%;
     }

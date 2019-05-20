@@ -8,7 +8,7 @@
             if (clientWidth === undefined) return;
             // 当前页面宽度相对于375宽的缩放比例，可根据自己需要修改。
             // 设置页面根节点字体大小
-            docEl.style.fontSize = baseSize * (clientWidth / 1280) + 'px';
+            if (clientWidth > 700) { docEl.style.fontSize = baseSize * (clientWidth / 1280) + 'px'; }
         };
     if (document.addEventListener === undefined) return;
     window.addEventListener(resizeEvt, recalc, false);

@@ -209,6 +209,7 @@ export default({
 	}
 	.form-control{
 		margin: 0 8px;
+		width: 180px;
 	}
 	.form-control::-webkit-input-placeholder{
 		font-size: 0.8rem ;
@@ -235,9 +236,12 @@ export default({
 		padding: 0 10px;
 	}
 
-  @media screen and (max-width:600px){
+  @media screen and (max-width:700px){
     .triangle-answer {
       border-color:transparent;
     }
+	.form-control{
+		width: 120px;
+	}
   }
 </style>
