@@ -200,7 +200,7 @@ export default({
 		color:rgb(247, 125, 145);
 	}
 	.tri-container{
-		margin: 50px 20px ;
+		margin: 50px 40px ;
 		max-height:650px;
 		overflow-y:auto;
 	}
@@ -242,6 +242,9 @@ export default({
     }
 	.form-control{
 		width: 120px;
+	}
+	.form-control::-webkit-input-placeholder{
+		font-size: 0.67rem ;
 	}
   }
 </style>
