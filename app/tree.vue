@@ -122,7 +122,7 @@ export default {
                 label: '其他文章',
                 children: [{
                     id: '61',
-                    label: 'js前端面试问题汇总'
+                    label: 'js前端问题汇总'
                 }, {
                     id: '62',
                     label: 'Https'
