@@ -4,6 +4,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+
 
 module.exports = {
     // 环境
@@ -21,16 +23,18 @@ module.exports = {
         filename: 'js/[name].js'
     },
     plugins: [
+        new CompressionWebpackPlugin({
+        asset: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: new RegExp('\\.(js|css)$'),
+        threshold: 10240,
+        minRatio: 0.8
+    }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'index.html',
             inject: true
         }),
-        // new HtmlWebpackPlugin({
-        //     filename: 'todoList.html',
-        //     template: 'todoList.html',
-        //     inject: true
-        // }),
         new VueLoaderPlugin(),
         // new ExtractTextPlugin({
         //         filename: 'css/[name].css', // 配置提取出来的css名称
@@ -39,7 +43,7 @@ module.exports = {
         new OptimizeCSSAssetsPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css'
-        })
+        }),
     ],
     module: {
         rules: [
@@ -65,20 +69,6 @@ module.exports = {
                     'postcss-loader'
                 ]
             },
-            // {
-            //     test: /\.(css)$/,
-            //     exclude: /node_modules/,
-            //     use: ExtractTextPlugin.extract({
-            //         fallback: {// 这里表示不提取的时候，使用什么样的配置来处理css
-            //             loader: 'style-loader',
-            //         },
-            //         use: [ // 提取的时候，继续用下面的方式处理
-            //             {
-            //                 loader: 'css-loader',
-            //             }
-            //         ]
-            //     })
-            // },
             {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
@@ -111,8 +101,6 @@ module.exports = {
             'vue': 'vue/dist/vue.js',
             '@': path.resolve(__dirname),
             'prettify': './node_modules/showdown-prettify/src/showdown-prettify.js'
-            // 'static':path.resolve(__dirname, './static'),
-            // 'dist':path.resolve(__dirname,'./dist')
         },
         // 引入文件可不加后缀
         extensions: ['.js', '.vue', '.json']

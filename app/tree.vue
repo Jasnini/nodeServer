@@ -19,7 +19,7 @@
 
 <script>
 import Vue from 'vue';
-import Tree from '@/node_modules/element-ui';
+import { Tree } from '@/node_modules/element-ui';
 import './element-variables.scss';
 Vue.use(Tree);
 
