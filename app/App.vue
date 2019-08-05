@@ -103,11 +103,14 @@
 
 <script>
 import Vue from 'vue';
-import tree from './tree.vue';
+// import tree from './tree.vue';
+const tree = () => import('./tree.vue');
 import './element-variables.scss';
-import introduction from './introduction.vue';
+// import introduction from './introduction.vue';
+const introduction = () => import('./introduction.vue');
 import VueRouter from 'vue-router';
-import tool from './tool.vue';
+// import tool from './tool.vue';
+const tool = () => import('./tool.vue');
 Vue.use(VueRouter);
 
 // import hljs from 'highlight.js/lib/highlight';
@@ -115,9 +118,12 @@ Vue.use(VueRouter);
 // hljs.registerLanguage('javascript', javascript);
 
 // import '../static/styles/github.css';
-import comparticle from './article.vue';
-import todoList from './TodoList.vue';
-import triangle from './Triangle.vue';
+// import comparticle from './article.vue';
+const comparticle = () => import('./article.vue');
+// import todoList from './TodoList.vue';
+const todoList = () => import('./TodoList.vue');
+// import triangle from './Triangle.vue';
+const triangle = () => import('./Triangle.vue');
 
 const router = new VueRouter({
     // mode: 'history',
