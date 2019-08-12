@@ -1,8 +1,5 @@
 import Vue from 'vue';
-import outer from './App.vue';
+import Outer from './app.vue';
 const outline = new Vue({
-    el: '#outline',
-    components: {
-        outer
-    }
-});
+    render: (h) => h(Outer)
+}).$mount('#outline');

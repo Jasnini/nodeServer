@@ -101,7 +101,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'vue': 'vue/dist/vue.js',
+            'vue': 'vue/dist/vue.runtime.js',
             '@': path.resolve(__dirname),
             'prettify': './node_modules/showdown-prettify/src/showdown-prettify.js'
         },

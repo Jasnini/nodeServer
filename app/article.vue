@@ -1,5 +1,11 @@
 <template>
   <div id="comparticle">
+    <!-- <div class="article__comparticle--info">
+      <span>发表于{{ issueTime }} </span>
+      <span>更新于{{ updateTime }}</span>
+      <span>分类于{{ articleClass }}</span>
+      <span>阅读次数{{ readTimes }}</span>
+    </div> -->
     <div
       v-cloak
       id="article"
