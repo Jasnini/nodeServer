@@ -20,7 +20,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         // 文件名
         filename: 'js/[name].js',
-        chunkFilename: 'js/[name].js'
+        chunkFilename: 'js/[name].min.js'
     },
     plugins: [
         new CompressionWebpackPlugin({
@@ -28,7 +28,11 @@ module.exports = {
             algorithm: 'gzip',
             test: new RegExp('\\.(js|css)$'),
             threshold: 10240,
-            minRatio: 0.8
+            minRatio: 0.8,
+            filename(info){
+                let name = new Date().getTime();
+                return `${info}${name}`
+            }
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
